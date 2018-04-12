@@ -29,7 +29,7 @@
 
                         <!-- gallery item -->
                         <div class="col-md-4 o-hidden items graphic">
-                            <div class="item-img wow slideInLeft">
+                            <div class="item-img wow slideInDown">
                                 <img src="img/portfolio/1.jpg" alt="image">
                                 <div class="item-img-overlay valign">
                                     <div class="overlay-info full-width vertical-center">
@@ -45,7 +45,7 @@
 
                         <!-- gallery item -->
                         <div class="col-md-4 o-hidden items web">
-                            <div class="item-img wow slideInLeft">
+                            <div class="item-img wow slideInRight">
                                 <img src="img/portfolio/2.jpg" alt="image">
                                 <div class="item-img-overlay valign">
                                     <div class="overlay-info full-width vertical-center">
@@ -61,7 +61,7 @@
 
                         <!-- gallery item -->
                         <div class="col-md-4 o-hidden items brand">
-                            <div class="item-img wow slideInLeft">
+                            <div class="item-img wow slideInUp">
                                 <img src="img/portfolio/3.jpg" alt="image">
                                 <div class="item-img-overlay valign">
                                     <div class="overlay-info full-width vertical-center">
@@ -77,7 +77,7 @@
 
                         <!-- gallery item -->
                         <div class="col-md-4 o-hidden items graphic">
-                            <div class="item-img wow slideInLeft">
+                            <div class="item-img wow slideInDown">
                                 <img src="img/portfolio/4.jpg" alt="image">
                                 <div class="item-img-overlay valign">
                                     <div class="overlay-info full-width vertical-center">
@@ -93,7 +93,7 @@
 
                         <!-- gallery item -->
                         <div class="col-md-4 o-hidden items web">
-                            <div class="item-img wow slideInLeft">
+                            <div class="item-img wow slideInUp">
                                 <img src="img/portfolio/5.jpg" alt="image">
                                 <div class="item-img-overlay valign">
                                     <div class="overlay-info full-width vertical-center">
