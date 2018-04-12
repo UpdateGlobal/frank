@@ -14,7 +14,7 @@
 
                     <div class="col-lg-4 col-md-6">
                         <div class="item wow fadeInUp">
-                            <span class="icon"><i class="fas fa-laptop"></i></span>
+                            <span class="icon"><i class="fas fa-chart-pie"></i></span>
                             <h6>ANÁLISIS <br>POBLACIONAL A PROFUNDIDAD</h6>
                             <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's standard.</p>
                         </div>
@@ -22,7 +22,7 @@
 
                     <div class="col-lg-4 col-md-6 bord">
                         <div class="item wow fadeInUp">
-                            <span class="icon"><i class="fas fa-bug"></i></span>
+                            <span class="icon"><i class="far fa-edit"></i></span>
                             <h6>CREAMOS <br>CONCEPTOS DE CAMPAÑA</h6>
                             <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's standard.</p>
                         </div>
@@ -30,7 +30,7 @@
 
                     <div class="col-lg-4 col-md-6">
                         <div class="item wow fadeInUp">
-                            <span class="icon"><i class="fas fa-chart-pie"></i></span>
+                            <span class="icon"><i class="fas fa-comments"></i></i></span>
                             <h6>DESARROLLAMOS <br> TU LINEA COMUNICACIÓN</h6>
                             <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's standard.</p>
                         </div>
@@ -56,7 +56,7 @@
 
                     <div class="col-lg-4 col-md-6">
                         <div class="item wow fadeInUp">
-                            <span class="icon"><i class="fas fa-cogs"></i></span>
+                            <span class="icon"><i class="fas fa-heart"></i></span>
                             <h6>MERCHANDISING<br> POLÍTICO</h6>
                             <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's standard.</p>
                         </div>
