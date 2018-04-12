@@ -1,7 +1,7 @@
 <!-- =====================================
         ==== Start hero -->
         <section class="hero" data-scroll-index="1">
-            <div class="intro bg-gray text-center">
+            <div class="intro bg-gray1 text-center">
                 <div class="container">
                     <div class="row">
                         <div class="offset-lg-2 col-lg-8 content wow fadeInUp">

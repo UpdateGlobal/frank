@@ -21,21 +21,21 @@
         ?> 
         <?
         include 'includes/servicios.php'
-        ?>        <?
+        ?>        
+        <?
         include 'includes/galeria.php'
         ?>
-
-
-
-       
-    	
-
-
-       <?
-       include 'includes/footer.php'
-       ?><?
-       include 'includes/scripts.php'
-       ?>
+        <?
+        include 'includes/blog-adelanto.php'
+        ?>        
+        <?
+        include 'includes/contacto.php'
+        ?>
+        <?
+        include 'includes/footer.php'
+        ?><?
+        include 'includes/scripts.php'
+        ?>
 
     </body>
 </html>

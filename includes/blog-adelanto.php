@@ -6,8 +6,8 @@
 
                     <div class="offset-md-2 col-md-8">
                         <div class="section-head">
-                            <h4>Recent <span>Posts</span></h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p>
+                            <h4>Últimas <span>Noticias</span></h4>
+                            <p>Entérate de las últimas novedades o actividades en Marketing Político, en nuestro blog</p>
                         </div>
                     </div>
                     <div class="clear-fix"></div>
@@ -18,9 +18,9 @@
                                 <img src="img/blog/1.jpg" alt="">
                             </div>
                             <div class="content">
-                                <span class="tag"><a href="slider-text.html#0">WordPress</a></span>
+                                <span class="tag"><a href="slider-text.html#0">Lorem Ipsum</a></span>
                                 <h5>
-                                    <a href="slider-text.html#0">Top WordPress Themes and Plugins for Hotels, Travel, and</a>
+                                    <a href="slider-text.html#0">Lorem Ipsum is simply dummy text of the printing</a>
                                 </h5>
                                 <p>Lorem Ipsum is simply dummy text of the printing and type setting industry unknown printer took a galley of type.</p>
                             </div>
@@ -30,9 +30,9 @@
                                 <img src="img/blog/2.jpg" alt="">
                             </div>
                             <div class="content">
-                                <span class="tag"><a href="slider-text.html#0">ThemeForest</a></span>
+                                <span class="tag"><a href="slider-text.html#0">Lorem Ipsum</a></span>
                                 <h5>
-                                    <a href="slider-text.html#0">The 20 Best Lightroom Presets You Need to Know About</a>
+                                    <a href="slider-text.html#0">Lorem Ipsum is simply dummy text of the printing</a>
                                 </h5>
                                 <p>Lorem Ipsum is simply dummy text of the printing and type setting industry unknown printer took a galley of type.</p>
                             </div>
@@ -42,25 +42,14 @@
                                 <img src="img/blog/3.jpg" alt="">
                             </div>
                             <div class="content">
-                                <span class="tag"><a href="slider-text.html#0">Trends</a></span>
+                                <span class="tag"><a href="slider-text.html#0">Lorem Ipsum</a></span>
                                 <h5>
-                                    <a href="slider-text.html#0">Best Design Items to Appeal to the Millennial Generation</a>
+                                    <a href="slider-text.html#0">Lorem Ipsum is simply dummy text of the printing</a>
                                 </h5>
                                 <p>Lorem Ipsum is simply dummy text of the printing and type setting industry unknown printer took a galley of type.</p>
                             </div>
                         </div>
-                        <div class="pitem">
-                            <div class="post-img">
-                                <img src="img/blog/4.jpg" alt="">
-                            </div>
-                            <div class="content">
-                                <span class="tag"><a href="slider-text.html#0">ThemeForest</a></span>
-                                <h5>
-                                    <a href="slider-text.html#0">The 20 Best Lightroom Presets You Need to Know About</a>
-                                </h5>
-                                <p>Lorem Ipsum is simply dummy text of the printing and type setting industry unknown printer took a galley of type.</p>
-                            </div>
-                        </div>
+
                     </div>
 
                 </div>

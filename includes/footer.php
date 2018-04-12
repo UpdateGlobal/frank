@@ -27,7 +27,7 @@
                         <i class="fab fa-linkedin-in"></i>
                     </a>
                 </div>
-                <p>Copy Right 2018 &copy; By Infinity All Rights Reserved</p>
+                <p>Frank McBride 2018 &copy;</p>
             </div>
         </footer>
         <!-- End Footer ====

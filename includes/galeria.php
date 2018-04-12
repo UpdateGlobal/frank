@@ -1,7 +1,7 @@
 
         <!-- =====================================
         ==== Start Portfolio -->
-        <section class="portfolio section-padding pb-0" data-scroll-index="4">
+        <section class="portfolio section-padding pb-0" style="background-color: #f7f7f7" data-scroll-index="4">
             <div class="container-fluid">
 
                 <div class="row">

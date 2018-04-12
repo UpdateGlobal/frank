@@ -105,7 +105,7 @@ span, a, a:hover {
 }
 
 .bg-gray {
-  background: #f7f7f7;
+  background: #ffff;
 }
 .bg-gray .owl-theme .owl-dots .owl-dot span {
   background: #777;
@@ -954,7 +954,7 @@ span, a, a:hover {
   position: relative;
 }
 .contact .themap .map-toggle:after {
-  content: 'Open The Map';
+  content: 'Abre el Mapa y Ubícanos';
   position: relative;
   cursor: pointer;
 }
@@ -964,7 +964,7 @@ span, a, a:hover {
   cursor: pointer;
 }
 .contact .themap .map-opened:after {
-  content: 'Close The Map';
+  content: 'Nuestra Ubicación';
   position: relative;
 }
 .contact .themap .map {
@@ -1061,5 +1061,8 @@ footer p {
 }
 .slider{
     color: #ffff !important;;}
+
+.bg-gray1 {
+    background: #f7f7f7;
 
 /*# sourceMappingURL=style.css.map */

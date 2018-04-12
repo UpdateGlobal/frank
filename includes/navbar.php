@@ -23,9 +23,9 @@
 			      <li class="nav-item">
 			        <a class="nav-link" href="slider-text.html#" data-scroll-nav="4">Galería</a>
 			      </li>
-			      <li class="nav-item">
+			      <!-- <li class="nav-item">
 			        <a class="nav-link" href="slider-text.html#" data-scroll-nav="5">Campañas</a>
-			      </li>
+			      </li> -->
 			      <li class="nav-item">
 			        <a class="nav-link" href="slider-text.html#" data-scroll-nav="6">Blog</a>
 			      </li>
