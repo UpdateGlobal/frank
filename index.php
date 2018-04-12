@@ -27,6 +27,9 @@
         ?>
         <?
         include 'includes/blog-adelanto.php'
+        ?>
+        <?
+        include 'includes/equipo.php'
         ?>        
         <?
         include 'includes/contacto.php'

@@ -1,6 +1,6 @@
    <!-- =====================================
         ==== Start Contact -->
-        <section class="contact" data-scroll-index="7">
+        <section class="contact" data-scroll-index="8">
             <div class="contact-info bg-img" data-overlay-dark="6" data-background="img/6.jpg">
                 <div class="container">
                     <div class="row">

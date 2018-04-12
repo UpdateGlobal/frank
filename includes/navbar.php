@@ -23,14 +23,14 @@
 			      <li class="nav-item">
 			        <a class="nav-link" href="slider-text.html#" data-scroll-nav="4">Galería</a>
 			      </li>
-			      <!-- <li class="nav-item">
-			        <a class="nav-link" href="slider-text.html#" data-scroll-nav="5">Campañas</a>
-			      </li> -->
+			      <li class="nav-item">
+			        <a class="nav-link" href="slider-text.html#" data-scroll-nav="7">Nuestro Equipo</a>
+			      </li>
 			      <li class="nav-item">
 			        <a class="nav-link" href="slider-text.html#" data-scroll-nav="6">Blog</a>
 			      </li>
 			      <li class="nav-item">
-			        <a class="nav-link" href="slider-text.html#" data-scroll-nav="7">Contacto</a>
+			        <a class="nav-link" href="slider-text.html#" data-scroll-nav="8">Contacto</a>
 			      </li>
 			    </ul>
 			  </div>
