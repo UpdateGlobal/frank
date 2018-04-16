@@ -1,6 +1,6 @@
 <!-- =====================================
     	==== Start slider -->
-    	<header class="header slider bg-img" data-scroll-index="0" data-overlay-dark="7" data-background="img/bg3.jpg" data-stellar-background-ratio="0.5">
+    	<header class="header slider bg-img" data-scroll-index="0" data-overlay-dark="7" data-background="img/bg3.jpg" data-stellar-background-ratio="0.5" id="inicio">
     		<div class="container-fluid">
     			<div class="row">
     				<div class="owl-carousel owl-theme full-width">
