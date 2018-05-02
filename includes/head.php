@@ -2,7 +2,7 @@
 	<?php
     	$consultarMet = 'SELECT * FROM metatags';
         $resultadoMet = mysqli_query($enlaces,$consultarMet) or die('Consulta fallida: ' . mysqli_error($enlaces));
-        while($filaMet = mysqli_fetch_array($resultadoMet)){
+        $filaMet = mysqli_fetch_array($resultadoMet);
         	$xCodigo    = $filaMet['cod_meta'];
             $xLogo      = $filaMet['logo'];
             $xTitulo    = $filaMet['titulo'];
@@ -27,8 +27,10 @@
 
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="cms/assets/img/meta/<?php echo $xIco; ?>" />
-
-	<!-- Fonts -->
+    
+    <?php mysqli_free_result($resultadoMet); ?>
+	
+    <!-- Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,600,700,800" rel="stylesheet">
 
