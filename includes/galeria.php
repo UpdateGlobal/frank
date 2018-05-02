@@ -36,7 +36,7 @@
                                         <h6>Lorem Ipsum 1</h6>
                                         <p>Es el texto de Prueba que siempre se usa</p>
                                     </div>
-                                    <a href="portfolio-1.html" data-lity>
+                                    <a href="https://www.youtube.com/watch?v=1WfOtCR8L1s" data-lity>
                                         <i class="fas fa-file"></i>
                                     </a>
                                 </div>
