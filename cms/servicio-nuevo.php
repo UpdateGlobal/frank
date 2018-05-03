@@ -9,12 +9,12 @@ if (isset($_REQUEST['proceso'])) {
 }
 if($proceso == "Registrar"){
   $titulo       = mysqli_real_escape_string($enlaces, $_POST['titulo']);
-  $imagen       = $_POST['imagen'];
+  $icon         = $_POST['icon'];
   $descripcion  = mysqli_real_escape_string($enlaces, $_POST['descripcion']);
   if(isset($_POST['orden'])){$orden = $_POST['orden'];}else{$orden = 0;}
   if(isset($_POST['estado'])){$estado = $_POST['estado'];}else{$estado = 0;}
     
-  $insertarServicio = "INSERT INTO servicios(titulo, imagen, descripcion, orden, estado)VALUE('$titulo', '$imagen', '$descripcion', '$orden', '$estado')";
+  $insertarServicio = "INSERT INTO servicios(titulo, icon, descripcion, orden, estado)VALUE('$titulo', '$icon', '$descripcion', '$orden', '$estado')";
   $resultadoInsertar = mysqli_query($enlaces,$insertarServicio);
   $mensaje = "<div class='alert alert-success' role='alert'>
           <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
@@ -80,14 +80,22 @@ if($proceso == "Registrar"){
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="imagen">Imagen:</label><br>
-                  <small>(-px x -px)</small>
+                  <label class="col-form-label" for="icon">&Iacute;cono:</label>
                 </div>
-                <div class="col-4 col-lg-8">
-                  <input class="form-control" id="imagen" name="imagen" type="text">
-                </div>
-                <div class="col-4 col-lg-2">
-                  <button class="btn btn-info" type="button" name="boton2" onClick="javascript:Imagen('SER');" /><i class="fa fa-save"></i> Examinar</button>
+                <div class="col-8 col-lg-4">
+                  <style>
+                    .select-font{
+                      font-family: 'FontAwesome', 'Helvetica';
+                    }
+                  </style>
+                  <select class="form-control select-font" name="icon" id="icon">
+                    <option value="fa-pie-chart">&#xf200 Chart pie</option>
+                    <option value="fa-pencil-square-o">&#xf044 Editar</option>
+                    <option value="fa-comments">&#xf086 Comentarios</option>
+                    <option value="fa-images">&#xf302 Im&aacute;genes</option>
+                    <option value="fa-tablet-alt">&#xf3fa Tableta</option>
+                    <option value="fa-heart">&#xf004 Corazón</option>
+                  </select>
                 </div>
               </div>
 
@@ -103,10 +111,10 @@ if($proceso == "Registrar"){
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="texto">Texto:</label>
+                  <label class="col-form-label" for="descripcion">Texto:</label>
                 </div>
                 <div class="col-8 col-lg-10">
-                  <textarea data-provide="summernote" id="descripcion" name="descripcion" data-min-height="150"></textarea>
+                  <textarea id="descripcion" name="descripcion" class="form-control"></textarea>
                 </div>
               </div>
 
@@ -132,7 +140,7 @@ if($proceso == "Registrar"){
 
             <footer class="card-footer">
               <a href="servicios.php" class="btn btn-secondary"><i class="fa fa-times"></i> Cancelar</a>
-              <button class="btn btn-bold btn-primary" type="button" name="boton" onClick="javascript:Validar();" /><i class="fa fa-chevron-circle-right"></i> Registrar Banner</button>
+              <button class="btn btn-bold btn-primary" type="button" name="boton" onClick="javascript:Validar();" /><i class="fa fa-chevron-circle-right"></i> Registrar Servicio</button>
               <input type="hidden" name="proceso">
             </footer>
 

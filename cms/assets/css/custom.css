@@ -330,6 +330,10 @@ label span {
     background-color: #03c4cc;
 }
 
+.text-justify{
+    text-align: justify;
+}
+
 
 @media only screen and (max-width:1199px){
 

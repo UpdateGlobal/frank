@@ -101,12 +101,12 @@ if ($eliminar == "true") {
                   <table class="table">
                     <thead>
                       <tr>
-                        <th width="45%" scope="col">Imagen
+                        <th width="25%" scope="col">&Iacute;cono
                           <input type="hidden" name="proceso">
                           <input type="hidden" name="eliminar" value="false">
                         </th>
-                        <th width="20%" scope="col">Título</th>
-                        <th width="10%" scope="col">Orden</th>
+                        <th width="35%" scope="col">T&iacute;tulo</th>
+                        <th width="15%" scope="col">Orden</th>
                         <th width="10%" scope="col">Estado</th>
                         <th width="5%" scope="col"></th>
                         <th width="5%" scope="col"></th>
@@ -117,21 +117,18 @@ if ($eliminar == "true") {
                       <?php
                         $consultarservicio = "SELECT * FROM servicios ORDER BY orden";
                         $resultadoservicio = mysqli_query($enlaces,$consultarservicio) or die('Consulta fallida: ' . mysqli_error($enlaces));
-                        while($filaBan = mysqli_fetch_array($resultadoservicio)){
-                          $xCodigo    = $filaBan['cod_servicio'];
-                          $xImagen    = $filaBan['imagen'];
-                          $xTitulo    = $filaBan['titulo'];
-                          $xOrden     = $filaBan['orden'];
-                          $xEstado    = $filaBan['estado'];
+                        while($filaSer = mysqli_fetch_array($resultadoservicio)){
+                          $xCodigo      = $filaSer['cod_servicio'];
+                          $xIcon        = $filaSer['icon'];
+                          $xTitulo      = $filaSer['titulo'];
+                          $xOrden       = $filaSer['orden'];
+                          $xEstado      = $filaSer['estado'];
                       ?>
                       <tr>
-                        <td><img class="d-block b-1 border-light hover-shadow-2 p-1" src="assets/img/servicios/<?php echo $xImagen; ?>" /></td>
+                        <td><i style="font-size:30px;" class="fa <?php echo $xIcon; ?>"></i></td>
                         <td><?php echo $xTitulo; ?></td>
                         <td><?php echo $xOrden; ?></td>
-                        <td><strong>
-                          <?php if($xEstado=="1"){ echo "[Activo]"; }else{ echo "[Inactivo]";} ?>
-                          </strong>
-                        </td>
+                        <td><strong><?php if($xEstado=="1"){ echo "[Activo]"; }else{ echo "[Inactivo]";} ?></strong></td>
                         <td>
                           <a class="boton-eliminar <?php if($xVisitante=="1"){ ?>boton-eliminar-bloqueado<?php } ?>" href="<?php if($xVisitante=="0"){ ?>servicio-delete.php?cod_servicio=<?php echo $xCodigo; ?><?php }else{ ?>javascript:visitante();<?php } ?>">
                             <i class="fa fa-trash" aria-hidden="true"></i>

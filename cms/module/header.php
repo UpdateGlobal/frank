@@ -19,7 +19,7 @@
           <span class="icon fa fa-info"></span>
           <span class="title">Nosotros</span>
         </a>
-        <a class="dropdown-item" href="que-hacemos.php">
+        <a class="dropdown-item" href="servicios.php">
           <span class="icon fa fa-cubes"></span>
           <span class="title">Que hacemos</span>
         </a>

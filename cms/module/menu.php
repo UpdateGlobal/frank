@@ -46,8 +46,8 @@
             </a>
           </li>
 
-          <li class="menu-item <?php echo ($menu == "hacemos" ? "active" : "")?>">
-            <a class="menu-link <?php echo ($menu == "hacemos" ? "open" : "")?>" href="que-hacemos.php">
+          <li class="menu-item <?php echo ($menu == "servicios" ? "active" : "")?>">
+            <a class="menu-link <?php echo ($menu == "servicios" ? "open" : "")?>" href="servicios.php">
               <span class="icon fa fa-cubes"></span>
               <span class="title">Que hacemos</span>
             </a>
