@@ -12,20 +12,21 @@ if($proceso == ""){
   $ejecutarServicios = mysqli_query($enlaces,$consultaServicios) or die('Consulta fallida: ' . mysqli_error($enlaces));
   $filaSer = mysqli_fetch_array($ejecutarServicios);
   $cod_servicio = $filaSer['cod_servicio'];
-  $imagen      = $filaSer['imagen'];
+  $icon        = $filaSer['icon'];
   $titulo      = $filaSer['titulo'];
   $descripcion = $filaSer['descripcion'];
   $orden       = $filaSer['orden'];
   $estado      = $filaSer['estado'];
 }
+
 if($proceso=="Actualizar"){
   $cod_servicio     = $_POST['cod_servicio'];
-  $imagen           = $_POST['imagen'];
+  $icon             = $_POST['icon'];
   $titulo           = mysqli_real_escape_string($enlaces, $_POST['titulo']);
   $descripcion      = mysqli_real_escape_string($enlaces, $_POST['descripcion']);
   if(isset($_POST['orden'])){$orden = $_POST['orden'];}else{$orden = 0;}
   if(isset($_POST['estado'])){$estado = $_POST['estado'];}else{$estado = 0;}
-  $actualizarServicios  = "UPDATE servicios SET cod_servicio='$cod_servicio', imagen='$imagen', titulo='$titulo', descripcion='$descripcion', orden='$orden', estado='$estado' WHERE cod_servicio='$cod_servicio'";
+  $actualizarServicios  = "UPDATE servicios SET cod_servicio='$cod_servicio', icon='$icon', titulo='$titulo', descripcion='$descripcion', orden='$orden', estado='$estado' WHERE cod_servicio='$cod_servicio'";
   $resultadoActualizar = mysqli_query($enlaces,$actualizarServicios) or die('Consulta fallida: ' . mysqli_error($enlaces));
   header("Location:servicios.php");
 }
@@ -73,15 +74,14 @@ if($proceso=="Actualizar"){
       <header class="header bg-ui-general">
         <div class="header-info">
           <h1 class="header-title">
-            <strong>Servicios</strong>
+            <strong>Que hacemos</strong>
             <small></small>
           </h1>
         </div>
-        <?php $page="servicios"; include("module/menu-servicios.php"); ?>
       </header><!--/.header -->
       <div class="main-content">
         <div class="card">
-          <h4 class="card-title"><strong>Servicio Nuevo</strong></h4>
+          <h4 class="card-title"><strong>Editar Servicio</strong></h4>
           <form class="fcms" name="fcms" method="post" action="" data-provide="validation" data-disable="false">
             <div class="card-body">
               <?php if(isset($mensaje)){ echo $mensaje; } else {}; ?>
@@ -89,13 +89,21 @@ if($proceso=="Actualizar"){
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
                   <label class="col-form-label" for="imagen">Imagen:</label><br>
-                  <small>(-px x -px)</small>
                 </div>
                 <div class="col-4 col-lg-8">
-                  <input class="form-control" id="imagen" name="imagen" type="text" value="<?php echo $imagen; ?>">
-                </div>
-                <div class="col-4 col-lg-2">
-                  <button class="btn btn-info" type="button" name="boton2" onClick="javascript:Imagen('SER');" /><i class="fa fa-save"></i> Examinar</button>
+                  <style>
+                    .select-font{
+                      font-family: 'FontAwesome', 'Helvetica';
+                    }
+                  </style>
+                  <select class="form-control select-font" name="icon" id="icon">
+                    <option value="fa-chart-pie">&#xf200 Chart pie</option>
+                    <option value="fa-edit">&#xf044 Editar</option>
+                    <option value="fa-comments">&#xf086 Comentarios</option>
+                    <option value="fa-images">&#xf302 Im&aacute;genes</option>
+                    <option value="fa-tablet-alt">&#xf3fa Tableta</option>
+                    <option value="fa-heart">&#xf004 Corazón</option>
+                  </select>
                 </div>
               </div>
 

@@ -17,7 +17,7 @@
                                 $xContenido   = $filaCon['contenido'];
                                 $xEstado      = $filaCon['estado'];
                         ?>
-                        <?php echo $xContenido; ?>
+                        <p><?php echo $xContenido; ?></p>
                         <?php mysqli_free_result($resultadoCon); ?>
                     </div>
                 </div>

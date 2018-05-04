@@ -63,7 +63,6 @@
             </div>
           </div>
         </div>
-
       </div>
       <?php include("module/footer_int.php"); ?>
     </main>

@@ -90,7 +90,14 @@
             <div class="offset-md-2 col-md-8">
                 <div class="section-head">
                     <h4>Necesita <span>m&aacute;s</span> Informaci&oacute;n</h4>
-                    <p>Brindenos sus datos, envianos un email o un whatsapp y un asesor especializado se comunicará con usted con total confidencialidad</p>
+                    <?php
+                        $consultarCon = "SELECT * FROM contenidos WHERE cod_contenido='6'";
+                        $resultadoCon = mysqli_query($enlaces,$consultarCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                        $filaCon = mysqli_fetch_array($resultadoCon);
+                            $xContenido   = $filaCon['contenido'];
+                    ?>
+                    <p><?php echo $xContenido; ?></p>
+                    <?php mysqli_free_result($resultadoCon); ?>
                 </div>
             </div>
             <div class="clear-fix"></div>
@@ -127,7 +134,7 @@
                     </div>
                 </div>
             </div>
-
+            
         </div>
     </div>
     <!-- The Map -->

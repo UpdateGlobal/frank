@@ -23,22 +23,22 @@ if($proceso == "Actualizar"){
 
   $ActualizarCon = "UPDATE contenidos SET cod_contenido='$cod_contenido', contenido='$contenido', estado='$estado' WHERE cod_contenido='$cod_contenido'";
   $resultadoActualizar = mysqli_query($enlaces,$ActualizarCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
-  header("Location:nosotros.php");
+  header("Location:servicios.php");
 }
 ?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
     <?php include("module/head.php"); ?>
     <script type="text/javascript" src="assets/js/rutinas.js"></script>
     <script>
     function Validar(){
-      document.fcms.action = "nosotros-edit.php";
+      document.fcms.action = "servicio-texto-edit.php";
       document.fcms.proceso.value="Actualizar";
       document.fcms.submit();
     }
     </script>
-    <script src="assets/js/visitante-alert.js"></script>
   </head>
   <body>
     <!-- Preloader -->
@@ -49,27 +49,27 @@ if($proceso == "Actualizar"){
         <span class="dot3"></span>
       </div>
     </div>
-    <?php $menu="nosotros"; include("module/menu.php"); ?>
+    <?php $menu="servicios"; include("module/menu.php"); ?>
     <?php include("module/header.php"); ?>
     <!-- Main container -->
     <main>
       <header class="header bg-ui-general">
         <div class="header-info">
           <h1 class="header-title">
-            <strong>Qui&eacute;nes Somos</strong>
+            <strong>Que hacemos</strong>
             <small></small>
           </h1>
         </div>
       </header><!--/.header -->
       <div class="main-content">
         <div class="card">
-          <h4 class="card-title"><strong>Editar Qui&eacute;nes Somos</strong></h4>
+          <h4 class="card-title"><strong>Editar Que hacemos (Descripci&oacute;n)</strong></h4>
           <form class="fcms" name="fcms" method="post" action="" data-provide="validation" data-disable="false">
             <div class="card-body">
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="slogan">Descripci&oacute;n:</label>
+                  <label class="col-form-label" for="descripcion">Descripci&oacute;n:</label>
                 </div>
                 <div class="col-8 col-lg-10">
                   <?php if($xVisitante=="1"){ ?><p><?php echo $contenido; ?></p><?php } ?>
@@ -90,7 +90,7 @@ if($proceso == "Actualizar"){
 
             </div>
             <footer class="card-footer">
-              <a href="nosotros.php" class="btn btn-secondary"><i class="fa fa-times"></i> Cancelar</a>
+              <a href="servicios.php" class="btn btn-secondary"><i class="fa fa-times"></i> Cancelar</a>
               <button class="btn btn-bold btn-primary" type="button" name="boton" onClick="javascript:Validar();" /><i class="fa fa-refresh"></i> Guardar Cambios</button>
               <input type="hidden" name="proceso">
               <input type="hidden" name="cod_contenido" value="<?php echo $cod_contenido; ?>">

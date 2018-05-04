@@ -1,4 +1,8 @@
 <?php include("cms/module/conexion.php"); ?>
+<?php 
+    $num = 0;
+    $line = 0; 
+?>
 <!DOCTYPE html>
 <html lang="es">
     <?php include 'includes/head.php'; ?>

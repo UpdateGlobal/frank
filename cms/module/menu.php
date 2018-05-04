@@ -111,7 +111,7 @@
           </li>
 
           <li class="menu-item <?php echo ($menu == "equipo" ? "active" : "")?>">
-            <a class="menu-link" href="equipo.php">
+            <a class="menu-link" href="equipos.php">
               <span class="icon fa fa-users"></span>
               <span class="title">Nuestro Equipo</span>
             </a>

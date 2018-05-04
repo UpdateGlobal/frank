@@ -65,11 +65,10 @@ if($proceso == "Registrar"){
       <header class="header bg-ui-general">
         <div class="header-info">
           <h1 class="header-title">
-            <strong>Servicios</strong>
+            <strong>Que hacemos</strong>
             <small></small>
           </h1>
         </div>
-        <?php $page="servicios"; include("module/menu-servicios.php"); ?>
       </header><!--/.header -->
       <div class="main-content">
         <div class="card">
@@ -89,8 +88,8 @@ if($proceso == "Registrar"){
                     }
                   </style>
                   <select class="form-control select-font" name="icon" id="icon">
-                    <option value="fa-pie-chart">&#xf200 Chart pie</option>
-                    <option value="fa-pencil-square-o">&#xf044 Editar</option>
+                    <option value="fa-chart-pie">&#xf200 Chart pie</option>
+                    <option value="fa-edit">&#xf044 Editar</option>
                     <option value="fa-comments">&#xf086 Comentarios</option>
                     <option value="fa-images">&#xf302 Im&aacute;genes</option>
                     <option value="fa-tablet-alt">&#xf3fa Tableta</option>

@@ -28,6 +28,43 @@
         <?php $page="contacto"; include("module/menu-contacto.php"); ?>
       </header><!--/.header -->
       <div class="main-content">
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-bordered">
+              <h4 class="card-title"><strong>Contacto (Descripci&oacute;n)</strong></h4>
+              <div class="card-body">
+                <div class="row">
+                  <?php
+                    $consultarCon = "SELECT * FROM contenidos WHERE cod_contenido='6'";
+                    $resultadoCon = mysqli_query($enlaces,$consultarCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                    while($filaCon = mysqli_fetch_array($resultadoCon)){
+                      $xCodigo      = $filaCon['cod_contenido'];
+                      $xContenido   = $filaCon['contenido'];
+                      $xEstado      = $filaCon['estado'];
+                  ?>
+                  <div class="col-12 col-lg-12">
+                    <p><?php 
+                      $strCut = substr($xContenido,0,800);
+                      $xContenido = substr($strCut,0,strrpos($strCut, ' ')).'...';
+                      echo strip_tags($xContenido);
+                    ?></p>
+                    <hr>
+                    <p><strong>Estado: <?php if($xEstado=="1"){echo "[Activo]";}else{ echo "[Inactivo]"; } ?> </strong></p>
+                  </div>
+                </div>
+                <?php
+                  }
+                  mysqli_free_result($resultadoCon);
+                ?>
+              </div>
+              <div class="publisher bt-1 border-light">
+                <a href="contacto-texto-edit.php?cod_contenido=<?php echo $xCodigo; ?>" class="btn btn-bold btn-primary"><i class="fa fa-refresh"></i> Editar Contacto</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="row">
           <div class="col-md-12">
             <div class="card card-bordered">

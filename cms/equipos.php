@@ -35,8 +35,9 @@ if ($eliminar == "true") {
     <?php include("module/head.php"); ?>
     <style>
       @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
-        td:nth-of-type(1):before { content: "Ícono"; }
-        td:nth-of-type(2):before { content: "Título"; }
+        td:nth-of-type(1):before { content: "Foto"; }
+        td:nth-of-type(2):before { content: "Nombre"; }
+        td:nth-of-type(2):before { content: "Cargo"; }
         td:nth-of-type(3):before { content: "Orden"; }
         td:nth-of-type(4):before { content: "Estado"; }
         td:nth-of-type(5):before { content: ""; }
@@ -76,14 +77,14 @@ if ($eliminar == "true") {
         <span class="dot3"></span>
       </div>
     </div>
-    <?php $menu="servicios"; include("module/menu.php"); ?>
+    <?php $menu="equipo"; include("module/menu.php"); ?>
     <?php include("module/header.php"); ?>
     <!-- Main container -->
     <main>
       <header class="header bg-ui-general">
         <div class="header-info">
           <h1 class="header-title">
-            <strong>Que hacemos</strong>
+            <strong>Nuestro Equipo</strong>
             <small></small>
           </h1>
         </div>
@@ -92,11 +93,11 @@ if ($eliminar == "true") {
         <div class="row">
           <div class="col-md-12">
             <div class="card card-bordered">
-              <h4 class="card-title"><strong>Que hacemos (Descripci&oacute;n)</strong></h4>
+              <h4 class="card-title"><strong>Nuestro Equipo (Descripci&oacute;n)</strong></h4>
               <div class="card-body">
                 <div class="row">
                   <?php
-                    $consultarCon = "SELECT * FROM contenidos WHERE cod_contenido='2'";
+                    $consultarCon = "SELECT * FROM contenidos WHERE cod_contenido='5'";
                     $resultadoCon = mysqli_query($enlaces,$consultarCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
                     while($filaCon = mysqli_fetch_array($resultadoCon)){
                       $xCodigo      = $filaCon['cod_contenido'];
@@ -119,7 +120,7 @@ if ($eliminar == "true") {
                 ?>
               </div>
               <div class="publisher bt-1 border-light">
-                <a href="servicio-texto-edit.php?cod_contenido=<?php echo $xCodigo; ?>" class="btn btn-bold btn-primary"><i class="fa fa-refresh"></i> Editar Descripci&oacute;n</a>
+                <a href="equipo-texto-edit.php?cod_contenido=<?php echo $xCodigo; ?>" class="btn btn-bold btn-primary"><i class="fa fa-refresh"></i> Editar Descripci&oacute;n</a>
               </div>
             </div>
           </div>
@@ -129,18 +130,19 @@ if ($eliminar == "true") {
             <div class="card card-bordered">
               <h4 class="card-title"><strong>Lista de Servicios</strong></h4>
               <div class="card-body">
-                <a class="btn btn-info" href="<?php if($xVisitante=="0"){ ?>servicio-nuevo.php<?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-plus"></i> A&ntilde;adir nuevo</a>
+                <a class="btn btn-info" href="<?php if($xVisitante=="0"){ ?>equipo-nuevo.php<?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-plus"></i> A&ntilde;adir nuevo</a>
                 <hr>
                 <form name="fcms" method="post" action="">
                   <table class="table">
                     <thead>
                       <tr>
-                        <th width="25%" scope="col">&Iacute;cono
+                        <th width="20%" scope="col">Foto
                           <input type="hidden" name="proceso">
                           <input type="hidden" name="eliminar" value="false">
                         </th>
-                        <th width="35%" scope="col">T&iacute;tulo</th>
-                        <th width="15%" scope="col">Orden</th>
+                        <th width="25%" scope="col">Nombre</th>
+                        <th width="20%" scope="col">Cargo</th>
+                        <th width="10%" scope="col">Orden</th>
                         <th width="10%" scope="col">Estado</th>
                         <th width="5%" scope="col"></th>
                         <th width="5%" scope="col"></th>
@@ -149,26 +151,28 @@ if ($eliminar == "true") {
                     </thead>
                     <tbody>
                       <?php
-                        $consultarservicio = "SELECT * FROM servicios ORDER BY orden";
+                        $consultarservicio = "SELECT * FROM equipo ORDER BY orden";
                         $resultadoservicio = mysqli_query($enlaces,$consultarservicio) or die('Consulta fallida: ' . mysqli_error($enlaces));
                         while($filaSer = mysqli_fetch_array($resultadoservicio)){
-                          $xCodigo      = $filaSer['cod_servicio'];
-                          $xIcon        = $filaSer['icon'];
-                          $xTitulo      = $filaSer['titulo'];
+                          $xCodigo      = $filaSer['cod_equipo'];
+                          $xImagen      = $filaSer['imagen'];
+                          $xNombre      = $filaSer['nombre'];
+                          $xCargo       = $filaSer['cargo'];
                           $xOrden       = $filaSer['orden'];
                           $xEstado      = $filaSer['estado'];
                       ?>
                       <tr>
-                        <td><div class="font"><i class="fa <?php echo $xIcon; ?>"></i></td>
-                        <td><?php echo $xTitulo; ?></td>
+                        <td><div class="font"><i class="fa <?php echo $xImagen; ?>"></i></td>
+                        <td><?php echo $xNombre; ?></td>
+                        <td><?php echo $xCargo; ?></td>
                         <td><?php echo $xOrden; ?></td>
                         <td><strong><?php if($xEstado=="1"){ echo "[Activo]"; }else{ echo "[Inactivo]";} ?></strong></td>
                         <td>
-                          <a class="boton-eliminar <?php if($xVisitante=="1"){ ?>boton-eliminar-bloqueado<?php } ?>" href="<?php if($xVisitante=="0"){ ?>servicio-delete.php?cod_servicio=<?php echo $xCodigo; ?><?php }else{ ?>javascript:visitante();<?php } ?>">
+                          <a class="boton-eliminar <?php if($xVisitante=="1"){ ?>boton-eliminar-bloqueado<?php } ?>" href="<?php if($xVisitante=="0"){ ?>equipo-delete.php?cod_servicio=<?php echo $xCodigo; ?><?php }else{ ?>javascript:visitante();<?php } ?>">
                             <i class="fa fa-trash" aria-hidden="true"></i>
                           </a>
                         </td>
-                        <td><a class="boton-editar" href="servicio-edit.php?cod_servicio=<?php echo $xCodigo; ?>"><i class="fa fa-pencil-square" aria-hidden="true"></i></a></td>
+                        <td><a class="boton-editar" href="equipo-edit.php?cod_equipo=<?php echo $xCodigo; ?>"><i class="fa fa-pencil-square" aria-hidden="true"></i></a></td>
                         <td>
                           <?php if($xVisitante=="0"){ ?>
                           <div class="hidden">
