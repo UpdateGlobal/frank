@@ -31,6 +31,16 @@ if($id=='IV'){
 	}
 }
 
+// Subir Imagen productos
+if($id=='EQP'){
+	$uploaddir = 'assets/img/equipo/'.$uploadname;
+	if(move_uploaded_file($uploadtempname, $uploaddir)){
+		$mensaje = "El archivo subi&oacute; correctamente";
+	}else{
+		$mensaje = "El archivo no se subi&oacute;";  
+	}
+}
+
 // Imagen Categoria productos
 if($id=='IC'){
 	$uploaddir = 'assets/img/productos/categorias/'.$uploadname;
@@ -73,7 +83,7 @@ if($id=='FT'){
 
 // Subir Banner Grande
 if($id=='BG'){
-	$uploaddir = 'assets/img/productos/bannerg/'.$uploadname;
+	$uploaddir = 'assets/img/equipo/'.$uploadname;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
@@ -272,6 +282,9 @@ if($id=='SERGAL'){
 			if(valor=="IV") {
 				opener.window.fcms.imagen.value = "<?php echo basename($_FILES['imagen']['name']); ?>";
 			}
+			if(valor=="EQP") {
+				opener.window.fcms.imagen.value = "<?php echo basename($_FILES['imagen']['name']); ?>";
+			}
 			if(valor=="IC") {
 				opener.window.fcms.imagen.value = "<?php echo basename($_FILES['imagen']['name']); ?>";
 			}
@@ -349,6 +362,9 @@ if($id=='SERGAL'){
 			}
 			if(valor=="IV") {
 				window.opener.document.fcms.imagen.value = "<?php echo basename($_FILES['imagen']['name']); ?>";
+			}
+			if(valor=="EQP") {
+				window.opener.fcms.imagen.value = "<?php echo basename($_FILES['imagen']['name']); ?>";
 			}
 			if(valor=="IC") {
 				window.opener.document.fcms.imagen.value = "<?php echo basename($_FILES['imagen']['name']); ?>";

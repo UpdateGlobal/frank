@@ -13,3 +13,35 @@
 .contact .form button:hover {
 	background: #FFB600;
 }
+
+.btn-volver {
+    padding: 10px 30px;
+    background: #222;
+    color: #fff;
+    font-size: 14px;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+.btn-volver:hover {
+    background: #FFB600;
+}
+
+.content-post p, .content-post h4 {
+    margin-bottom: 10px;
+}
+
+.categoria-post {
+    color: #FFB600;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.categorias ul li{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

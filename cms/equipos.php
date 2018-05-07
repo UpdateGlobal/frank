@@ -8,17 +8,17 @@ if (isset($_REQUEST['eliminar'])) {
   $eliminar = "";
 }
 if ($eliminar == "true") {
-  $sqlEliminar = "SELECT cod_servicio FROM servicios ORDER BY orden";
+  $sqlEliminar = "SELECT cod_equipo FROM equipo ORDER BY orden";
   $sqlResultado = mysqli_query($enlaces,$sqlEliminar);
   $x = 0;
   while($filaElim = mysqli_fetch_array($sqlResultado)){
-    $id_servicio = $filaElim["cod_servicio"];
-    if ($_REQUEST["chk" . $id_servicio] == "on") {
+    $id_equipo = $filaElim["cod_equipo"];
+    if ($_REQUEST["chk" . $id_equipo] == "on") {
       $x++;
       if ($x == 1) {
-        $sql = "DELETE FROM servicios WHERE cod_servicio=$id_servicio";
+        $sql = "DELETE FROM equipo WHERE cod_equipo=$id_equipo";
       } else { 
-        $sql = $sql . " OR cod_servicio=$id_servicio";
+        $sql = $sql . " OR cod_equipo=$id_equipo";
       }
     }
   }
@@ -26,7 +26,7 @@ if ($eliminar == "true") {
   if ($x > 0) { 
     $rs = mysqli_query($enlaces,$sql);
   }
-  header ("Location:servicios.php");
+  header ("Location:equipos.php");
 }
 ?>
 <!DOCTYPE html>
@@ -128,7 +128,7 @@ if ($eliminar == "true") {
         <div class="row">
           <div class="col-md-12">
             <div class="card card-bordered">
-              <h4 class="card-title"><strong>Lista de Servicios</strong></h4>
+              <h4 class="card-title"><strong>Miembros del Equipo</strong></h4>
               <div class="card-body">
                 <a class="btn btn-info" href="<?php if($xVisitante=="0"){ ?>equipo-nuevo.php<?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-plus"></i> A&ntilde;adir nuevo</a>
                 <hr>
@@ -162,13 +162,13 @@ if ($eliminar == "true") {
                           $xEstado      = $filaSer['estado'];
                       ?>
                       <tr>
-                        <td><div class="font"><i class="fa <?php echo $xImagen; ?>"></i></td>
+                        <td><img class="d-block b-1 border-light hover-shadow-2 p-1" src="assets/img/equipo/<?php echo $xImagen; ?>" /></td>
                         <td><?php echo $xNombre; ?></td>
                         <td><?php echo $xCargo; ?></td>
                         <td><?php echo $xOrden; ?></td>
                         <td><strong><?php if($xEstado=="1"){ echo "[Activo]"; }else{ echo "[Inactivo]";} ?></strong></td>
                         <td>
-                          <a class="boton-eliminar <?php if($xVisitante=="1"){ ?>boton-eliminar-bloqueado<?php } ?>" href="<?php if($xVisitante=="0"){ ?>equipo-delete.php?cod_servicio=<?php echo $xCodigo; ?><?php }else{ ?>javascript:visitante();<?php } ?>">
+                          <a class="boton-eliminar <?php if($xVisitante=="1"){ ?>boton-eliminar-bloqueado<?php } ?>" href="<?php if($xVisitante=="0"){ ?>equipo-delete.php?cod_equipo=<?php echo $xCodigo; ?><?php }else{ ?>javascript:visitante();<?php } ?>">
                             <i class="fa fa-trash" aria-hidden="true"></i>
                           </a>
                         </td>

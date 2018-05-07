@@ -102,7 +102,7 @@
                   <?php if($xMap!=""){ ?>
                   <li class="list-group-item">
                     <strong>Mapa:</strong>
-                    <iframe src="<?php echo $xMap; ?>" width="100%" frameborder="1" height="250"></iframe>
+                    <?php echo $xMap; ?>
                   </li>
                   <?php }else{ ?>
                   <?php } ?>

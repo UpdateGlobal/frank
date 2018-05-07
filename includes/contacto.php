@@ -140,7 +140,7 @@
     <!-- The Map -->
     <div class="themap">
         <div class="map-toggle"><i class="fas fa-map-marker-alt"></i></div>
-        <div id="ieatmaps" class="map"></div>
+        <div  class="map"><?php echo $xMap; ?></div>
     </div>
     <?php
         mysqli_free_result($resultadoCot);

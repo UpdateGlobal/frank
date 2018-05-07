@@ -17,6 +17,7 @@ if($proceso==""){
   $xMobile    = htmlspecialchars($filaCot['mobile']);
   $xEmail     = htmlspecialchars($filaCot['email']);
   $xMap       = htmlspecialchars($filaCot['map']);
+  $xMaphtml   = $filaCot['map'];
   $xFormem    = $filaCot['form_mail'];
 }
 
@@ -114,15 +115,6 @@ if($proceso == "Actualizar"){
               </div>
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="mobile">Celular:</label>
-                </div>
-                <div class="col-8 col-lg-10">
-                  <?php if($xVisitante=="1"){ ?><p><?php echo $xMobile; ?></p><?php } ?>
-                  <input class="form-control" id="mobile" name="mobile" type="<?php if($xVisitante=="1"){ ?>hidden<?php }else{ ?>text<?php } ?>" value="<?php echo $xMobile; ?>" />
-                </div>
-              </div>
-              <div class="form-group row">
-                <div class="col-4 col-lg-2">
                   <label class="col-form-label" for="map">Mapa de Contacto:</label>
                 </div>
                 <div class="col-8 col-lg-10">
@@ -130,11 +122,12 @@ if($proceso == "Actualizar"){
                   <input class="form-control" id="map" type="<?php if($xVisitante=="1"){ ?>hidden<?php }else{ ?>text<?php } ?>" name="map" value="<?php echo $xMap; ?>" />
                   <div class="separador-10"></div>
                   <?php if($xMap!=""){ ?>
-                  <iframe src="<?php echo $xMap; ?>" width="100%" frameborder="1" height="250"></iframe>
+                  <?php echo $xMaphtml; ?>
                   <?php }else{ ?>
                   <?php } ?>
                 </div>
               </div>
+              <div style="clear: both; height: 40px;"></div>
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
                   <label class="col-form-label require" for="form_mail">Correo que recibe los mensajes del Formulario:</label>

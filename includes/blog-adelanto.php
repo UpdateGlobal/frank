@@ -8,7 +8,7 @@
                     <p>Entérate de las últimas novedades o actividades en Marketing Político, en nuestro blog</p>
                 </div>
             </div>
-            <div class="clear-fix"></div>  
+            <div class="clear-fix"></div>
             <div class="col-md-12 wow fadeInUp owl-carousel owl-theme">
                 <?php
                     $consultarNoticias = "SELECT nc.cod_categoria, nc.categoria, p.* FROM noticias as p, noticias_categorias as nc WHERE p.cod_categoria=nc.cod_categoria AND p.estado='1' ORDER BY fecha DESC";
