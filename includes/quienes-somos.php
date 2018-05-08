@@ -1,3 +1,4 @@
+<a name="quienes-somos"></a>
 <!-- ========================================= Start hero -->
 <section class="hero" data-scroll-index="1">
     <div class="intro bg-gray1 text-center">

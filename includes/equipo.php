@@ -1,3 +1,4 @@
+<a name="nuestro-equipo"></a>
 <!-- ========================================= Start Team -->
 <section class="team section-padding bg-gray1" data-scroll-index="7">
     <div class="container">

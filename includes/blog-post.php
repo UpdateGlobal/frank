@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-md-3 wow fadeInUp">
                 <h5>Categor&iacute;as</h5>
-                <ul>
+                <ul class="categorias">
                     <?php
                         $consultarCategoria = "SELECT * FROM noticias_categorias WHERE estado='1' ORDER BY orden";
                         $resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
@@ -21,7 +21,7 @@
                             $xCodigo    = $filaCat['cod_categoria'];
                             $xCategoria = $filaCat['categoria'];
                     ?>
-                    <li><a href="categorias.php?cod_categoria=<?php echo $xCodigo; ?>"><?php echo $xCategoria; ?></a></li>
+                    <li><a href="categorias.php?cod_categoria=<?php echo $xCodigo; ?>"><i class="fas fa-angle-double-right"></i> <?php echo $xCategoria; ?></a></li>
                     <?php
                         }
                         mysqli_free_result($resultadoCategoria);
@@ -30,8 +30,7 @@
             </div>
             <div class="col-md-9 wow fadeInUp">
                 <?php
-                    /* $consultarNoticias = "SELECT * FROM noticias WHERE cod_noticia='$cod_noticia' AND estado='1'"; */
-                    $consultarNoticias = "SELECT nc.cod_categoria, nc.categoria, p.* FROM noticias as p, noticias_categorias as nc WHERE p.cod_noticia='2' AND p.estado='1'";
+                    $consultarNoticias = "SELECT nc.cod_categoria, nc.categoria, p.* FROM noticias as p, noticias_categorias as nc WHERE p.cod_noticia='$cod_noticia' AND p.estado='1'";
                     $resultadoNoticias = mysqli_query($enlaces,$consultarNoticias) or die('Consulta fallida: ' . mysqli_error($enlaces));
                     $filaNot = mysqli_fetch_array($resultadoNoticias);
                         $xTitulo        = $filaNot['titulo'];

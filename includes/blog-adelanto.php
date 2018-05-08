@@ -1,3 +1,4 @@
+<a name="blog"></a>
 <!-- ========================================= Start Blog -->
 <section class="blog section-padding bg-gray o-hidden" data-scroll-index="6">
     <div class="container">
@@ -44,6 +45,11 @@
                     }
                     mysqli_free_result($resultadoNoticias);
                 ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <a class="btn-volver" href="blog.php">Ver todas las noticias</a>
             </div>
         </div>
     </div>

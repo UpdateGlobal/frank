@@ -87,6 +87,13 @@
 
             <ul class="menu-submenu" <?php echo ($menu == "galeria" ? "style='display:block;'" : "")?>>
               <li class="menu-item">
+                <a class="menu-link" href="galeria-categorias.php">
+                  <span class="dot"></span>
+                  <span class="title">Categor&iacute;as</span>
+                </a>
+              </li>
+
+              <li class="menu-item">
                 <a class="menu-link" href="galeria.php">
                   <span class="dot"></span>
                   <span class="title">Album</span>

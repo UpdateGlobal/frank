@@ -41,7 +41,39 @@
     margin-bottom: 15px;
 }
 
-.categorias ul li{
+.categorias li{
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.categorias li a{
+    color: #FFB600;
+}
+
+.pitem {
+    margin-bottom: 30px;
+}
+
+.titulo-post{
+    height: 60px;
+}
+
+.text-post{
+    height: 120px;
+}
+
+.pagination-area{
+    text-align: center;
+}
+
+.pagination-area ul li {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px 5px;
+    background: #333;
+    color: #fff;
+}
+
+.pagination-area ul li.active {
+    background: #ffb600;
 }

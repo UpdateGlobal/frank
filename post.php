@@ -1,15 +1,12 @@
 <?php include("cms/module/conexion.php"); ?>
-<?php 
-    $num = 0;
-    $line = 0; 
-?>
+<?php $cod_noticia = $_REQUEST["cod_noticia"]; ?>
 <!DOCTYPE html>
 <html lang="es">
     <?php include 'includes/head.php'; ?>
     <body>
         <?php
             include 'includes/loader.php';
-            include 'includes/navbar.php';
+            include 'includes/navbar_int.php';
         ?>
         <header class="header slider bg-img" data-scroll-index="0" data-overlay-dark="7" data-background="img/bg3.jpg" data-stellar-background-ratio="0.5" id="inicio" style="height: 180px;"></header>
         <?php 
@@ -20,7 +17,7 @@
         <div class="fixed-bottom" align="right">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="slider-text.html#" data-scroll-nav="0"><i class="fas fa-arrow-up fa-4x"></i></a>
+                    <a class="nav-link active" href="#" data-scroll-nav="0"><i class="fas fa-arrow-up fa-4x"></i></a>
                 </li>
             </ul>
         </div>

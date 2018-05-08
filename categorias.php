@@ -1,22 +1,16 @@
 <?php include("cms/module/conexion.php"); ?>
-<?php 
-    $num = 0;
-    $line = 0; 
-?>
+<?php $cod_categoria = $_REQUEST['cod_categoria'];?>
 <!DOCTYPE html>
 <html lang="es">
     <?php include 'includes/head.php'; ?>
     <body>
         <?php
             include 'includes/loader.php';
-            include 'includes/navbar.php';
-            include 'includes/slider.php';
-            include 'includes/quienes-somos.php';
-            include 'includes/servicios.php';
-            include 'includes/galeria.php';
-            include 'includes/blog-adelanto.php';
-            include 'includes/equipo.php';
-            include 'includes/contacto.php';
+            include 'includes/navbar_int.php';
+        ?>
+        <header class="header slider bg-img" data-scroll-index="0" data-overlay-dark="7" data-background="img/bg3.jpg" data-stellar-background-ratio="0.5" id="inicio" style="height: 180px;"></header>
+        <?php 
+            include 'includes/categorias.php';
             include 'includes/footer.php';
             include 'includes/scripts.php';
         ?>

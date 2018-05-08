@@ -7,7 +7,7 @@ if (isset($_REQUEST['eliminar'])) {
   $eliminar = "";
 }
 if ($eliminar == "true") {
-  $sqlEliminar = "SELECT cod_categoria FROM noticias_categorias ORDER BY orden";
+  $sqlEliminar = "SELECT cod_categoria FROM galerias_categorias ORDER BY orden";
   $sqlResultado = mysqli_query($enlaces,$sqlEliminar);
   $x = 0;
   while($filaElim = mysqli_fetch_array($sqlResultado)){
@@ -15,7 +15,7 @@ if ($eliminar == "true") {
     if ($_REQUEST["chk" . $id_categoria] == "on") {
       $x++;
       if ($x == 1) {
-          $sql = "DELETE FROM noticias_categorias WHERE cod_categoria=$id_categoria";
+          $sql = "DELETE FROM galerias_categorias WHERE cod_categoria=$id_categoria";
         } else { 
           $sql = $sql . " OR cod_categoria=$id_categoria";
         }
@@ -25,7 +25,7 @@ if ($eliminar == "true") {
   if ($x > 0) { 
     $rs = mysqli_query($enlaces,$sql);
   }
-  header ("Location:noticias-categorias.php");
+  header ("Location:galeria-categorias.php");
 }
 
 ?>
@@ -78,18 +78,18 @@ if ($eliminar == "true") {
         <span class="dot3"></span>
       </div>
     </div>
-    <?php $menu="noticias"; include("module/menu.php"); ?>
+    <?php $menu="galeria"; include("module/menu.php"); ?>
     <?php include("module/header.php"); ?>
     <!-- Main container -->
     <main>
       <header class="header bg-ui-general">
         <div class="header-info">
           <h1 class="header-title">
-            <strong>Noticias</strong>
+            <strong>Galer&iacute;a</strong>
             <small></small>
           </h1>
         </div>
-        <?php $page="categorias"; include("module/menu-noticias.php"); ?>
+        <?php $page="galeria-categorias"; include("module/menu-galeria.php"); ?>
       </header><!--/.header -->
       <div class="main-content">
         <div class="row">
@@ -97,7 +97,7 @@ if ($eliminar == "true") {
             <div class="card card-bordered">
               <h4 class="card-title"><strong>Lista de categor&iacute;as</strong></h4>
               <div class="card-body">
-                <a class="btn btn-info" href="<?php if($xVisitante=="0"){ ?>noticias-categorias-nuevo.php<?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-plus" aria-hidden="true"> </i> A&ntilde;adir nuevo</a>
+                <a class="btn btn-info" href="<?php if($xVisitante=="0"){ ?>galeria-categorias-nuevo.php<?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-plus" aria-hidden="true"> </i> A&ntilde;adir nuevo</a>
                 <hr>
                 <form name="fcms" method="post" action="">
                   <table class="table">
@@ -116,7 +116,7 @@ if ($eliminar == "true") {
                     </thead>
                     <tbody>
                       <?php
-                        $consultarCategoria = "SELECT * FROM noticias_categorias ORDER BY orden";
+                        $consultarCategoria = "SELECT * FROM galerias_categorias ORDER BY orden";
                         $resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
                         while($filaCat = mysqli_fetch_array($resultadoCategoria)){
                           $xCodigo    = $filaCat['cod_categoria'];
@@ -132,10 +132,10 @@ if ($eliminar == "true") {
                         <?php }?></td>
                         <td>
                           <?php if($xCodigo!="0"){?>
-                            <?php if($xVisitante=="0"){ ?><a class="boton-eliminar" href="noticias-categorias-delete.php?cod_categoria=<?php echo $xCodigo; ?>"><i class="fa fa-trash"></i></a><?php }else{ ?><a class="boton-eliminar boton-eliminar-bloqueado" href="javascript:visitante();"><i class="fa fa-trash"></i></a><?php } ?>
+                            <?php if($xVisitante=="0"){ ?><a class="boton-eliminar" href="galeria-categorias-delete.php?cod_categoria=<?php echo $xCodigo; ?>"><i class="fa fa-trash"></i></a><?php }else{ ?><a class="boton-eliminar boton-eliminar-bloqueado" href="javascript:visitante();"><i class="fa fa-trash"></i></a><?php } ?>
                           <?php }?>
                         </td>
-                        <td><?php if($xCodigo!="0"){?><a class="boton-editar" href="noticias-categorias-edit.php?cod_categoria=<?php echo $xCodigo; ?>"><i class="fa fa-pencil-square"></i></a><?php }?></td>
+                        <td><?php if($xCodigo!="0"){?><a class="boton-editar" href="galeria-categorias-edit.php?cod_categoria=<?php echo $xCodigo; ?>"><i class="fa fa-pencil-square"></i></a><?php }?></td>
                         <td>
                           <?php if($xVisitante=="0"){ ?>
                             <?php if($xCodigo!="0"){?>
