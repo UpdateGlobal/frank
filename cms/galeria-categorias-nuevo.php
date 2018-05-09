@@ -9,10 +9,20 @@ if (isset($_REQUEST['proceso'])) {
 }
 if($proceso == "Registrar"){
   $categoria  = mysqli_real_escape_string($enlaces, $_POST['categoria']);
+  $slug       = $categoria;
+  $slug       = preg_replace('~[^\pL\d]+~u', '-', $slug);
+  $slug       = iconv('utf-8', 'us-ascii//TRANSLIT', $slug);
+  $slug       = preg_replace('~[^-\w]+~', '', $slug);
+  $slug       = trim($slug, '-');
+  $slug       = preg_replace('~-+~', '-', $slug);
+  $slug       = strtolower($slug);
+  if (empty($slug)){
+      return 'n-a';
+  }
   $orden      = $_POST['orden'];
   if(isset($_POST['estado'])){$estado = $_POST['estado'];}else{$estado = 0;}
     
-  $insertarCategoria = "INSERT INTO galerias_categorias(categoria, orden, estado)VALUE('$categoria', '$orden', '$estado')";
+  $insertarCategoria = "INSERT INTO galerias_categorias(categoria, slug, orden, estado)VALUE('$categoria', '$slug', '$orden', '$estado')";
   $resultadoInsertar = mysqli_query($enlaces,$insertarCategoria);
   $mensaje = "<div class='alert alert-success' role='alert'>
           <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>

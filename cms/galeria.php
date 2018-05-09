@@ -34,13 +34,14 @@ if ($eliminar == "true") {
     <?php include("module/head.php"); ?>
     <style>
       @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {
-        td:nth-of-type(1):before { content: "Album"; }
+        td:nth-of-type(1):before { content: "Título"; }
         td:nth-of-type(2):before { content: "Imagen"; }
-        td:nth-of-type(3):before { content: "Orden"; }
-        td:nth-of-type(4):before { content: "Estado"; }
-        td:nth-of-type(5):before { content: ""; }
+        td:nth-of-type(3):before { content: "Vídeo (?)"; }
+        td:nth-of-type(4):before { content: "Orden"; }
+        td:nth-of-type(5):before { content: "Estado"; }
         td:nth-of-type(6):before { content: ""; }
         td:nth-of-type(7):before { content: ""; }
+        td:nth-of-type(8):before { content: ""; }
       }
     </style>
     <script>
@@ -82,7 +83,7 @@ if ($eliminar == "true") {
       <header class="header bg-ui-general">
         <div class="header-info">
           <h1 class="header-title">
-            <strong>Galería</strong>
+            <strong>Galer&iacute;a</strong>
             <small></small>
           </h1>
         </div>
@@ -92,7 +93,7 @@ if ($eliminar == "true") {
         <div class="row">
           <div class="col-md-12">
             <div class="card card-bordered">
-              <h4 class="card-title"><strong>Lista de Albums</strong></h4>
+              <h4 class="card-title"><strong>Galer&iacute;a</strong></h4>
               <div class="card-body">
                 <a class="btn btn-info" href="<?php if($xVisitante=="0"){ ?>galeria-nuevo.php<?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-plus"></i> A&ntilde;adir nuevo</a>
                 <hr>
@@ -100,11 +101,13 @@ if ($eliminar == "true") {
                   <table class="table">
                     <thead>
                       <tr>
-                        <th width="30%" scope="col">Albums
+                        <th width="15%" scope="col">T&iacute;tulo
                           <input type="hidden" name="proceso">
                           <input type="hidden" name="eliminar" value="false">
                         </th>
-                        <th width="35%" scope="col">Imagen</th>
+                        <th width="15%" scope="col">Categor&iacute;as</th>
+                        <th width="20%" scope="col">Imagen</th>
+                        <th width="10%" scope="col">V&iacute;deo (?)</th>
                         <th width="10%" scope="col">Orden</th>
                         <th width="10%" scope="col">Estado</th>
                         <th width="5%" scope="col">&nbsp;</th>
@@ -114,18 +117,22 @@ if ($eliminar == "true") {
                     </thead>
                     <tbody>
                       <?php
-                        $consultarGal = "SELECT * FROM galerias ORDER BY orden";
+                        $consultarGal = "SELECT gc.cod_categoria, gc.categoria, g.* FROM galerias_categorias as gc, galerias as g WHERE g.cod_categoria=gc.cod_categoria ORDER BY orden ASC";
                         $resultadoGal = mysqli_query($enlaces,$consultarGal) or die('Consulta fallida: ' . mysqli_error($enlaces));
                         while($filaGal = mysqli_fetch_array($resultadoGal)){
                           $xCodigo    = $filaGal['cod_galeria'];
                           $xNomGal    = utf8_encode($filaGal['titulo']);
+                          $xCategoria = $filaGal['categoria'];
                           $xImagen    = $filaGal['imagen'];
+                          $xVideo     = $filaGal['video'];
                           $xOrden     = $filaGal['orden'];
                           $xEstado    = $filaGal['estado'];
                       ?>
                       <tr>
                         <td><?php echo $xNomGal; ?></td>
+                        <td><?php echo $xCategoria; ?></td>
                         <td><img class="d-block b-1 border-light hover-shadow-2 p-1" src="assets/img/galerias/<?php echo $xImagen; ?>" ></td>
+                        <td><?php if($xVideo!=""){ ?><i class="fa fa-video"></i><?php } ?></td>
                         <td><?php echo $xOrden; ?></td>
                         <td><strong><?php if($xEstado=="1"){ echo "[Activo]"; }else{ echo "[Inactivo]";} ?></strong></td>
                         <td>

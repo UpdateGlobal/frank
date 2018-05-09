@@ -49,7 +49,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
-                <a class="btn-volver" href="blog.php">Ver todas las noticias</a>
+                <a class="btn-volver" href="blog.php" style="margin-top: 30px;">Ver todas las noticias</a>
             </div>
         </div>
     </div>

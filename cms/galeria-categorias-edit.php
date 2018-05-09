@@ -20,9 +20,19 @@ if($proceso == ""){
 if($proceso=="Actualizar"){
   $cod_categoria    = $_POST['cod_categoria'];
   $categoria        = mysqli_real_escape_string($enlaces, $_POST['categoria']);
+  $slug             = $categoria;
+  $slug             = preg_replace('~[^\pL\d]+~u', '-', $slug);
+  $slug             = iconv('utf-8', 'us-ascii//TRANSLIT', $slug);
+  $slug             = preg_replace('~[^-\w]+~', '', $slug);
+  $slug             = trim($slug, '-');
+  $slug             = preg_replace('~-+~', '-', $slug);
+  $slug             = strtolower($slug);
+  if (empty($slug)){
+      return 'n-a';
+  }
   $orden            = $_POST['orden'];
   $estado           = $_POST['estado'];
-  $actualizarCategoria  = "UPDATE galerias_categorias SET cod_categoria='$cod_categoria', categoria='$categoria', orden='$orden', estado='$estado' WHERE cod_categoria='$cod_categoria'";
+  $actualizarCategoria  = "UPDATE galerias_categorias SET cod_categoria='$cod_categoria', categoria='$categoria', slug='$slug', orden='$orden', estado='$estado' WHERE cod_categoria='$cod_categoria'";
   $resultadoActualizar = mysqli_query($enlaces,$actualizarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
   
   header("Location:galeria-categorias.php");

@@ -10,20 +10,19 @@ if (isset($_POST['proceso'])) {
 }
 
 if($proceso == "Registrar"){
-  $titulo       = mysqli_real_escape_string($enlaces, utf8_decode($_POST['titulo']));
-  $imagen       = $_POST['imagen'];
-  $orden        = $_POST['orden'];
-  $estado       = $_POST['estado'];
+  $cod_categoria  = $_POST['cod_categoria'];
+  $titulo         = mysqli_real_escape_string($enlaces, utf8_decode($_POST['titulo']));
+  $descripcion    = mysqli_real_escape_string($enlaces, utf8_decode($_POST['descripcion']));
+  $imagen         = $_POST['imagen'];
+  $video          = $_POST['video'];
+  $orden          = $_POST['orden'];
+  $estado         = $_POST['estado'];
   
-  $validarGalerias = "SELECT * FROM galerias WHERE titulo='$titulo'";
-  $ejecutarValidar = mysqli_query($enlaces,$validarGalerias) or die('Consulta fallida: ' . mysqli_error($enlaces));
-  $numreg = mysqli_num_rows($ejecutarValidar);
-  
-  $insertarGalerias = "INSERT INTO galerias (titulo, imagen, orden, estado) VALUE ('$titulo', '$imagen', '$orden', '$estado')";
+  $insertarGalerias = "INSERT INTO galerias (cod_categoria, titulo, descripcion, imagen, video, orden, estado)VALUE('$cod_categoria', '$titulo', '$descripcion', '$imagen', '$video', '$orden', '$estado')";
   $resultadoInsertar = mysqli_query($enlaces,$insertarGalerias) or die('Consulta fallida: ' . mysqli_error($enlaces));
   $mensaje = "<div class='alert alert-success' role='alert'>
             <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
-            <strong>Nota:</strong> El trabajo se registr&oacute; con exitosamente. <a href='galeria.php'>Ir a Albums</a>
+            <strong>Nota:</strong> La imágen se registr&oacute; exitosamente. <a href='galeria.php'>Ir a Galería</a>
           </div>";
 }
 ?>
@@ -34,16 +33,11 @@ if($proceso == "Registrar"){
     <script type="text/javascript" src="assets/js/rutinas.js"></script>
     <script>
       function Validar(){
-        if(document.fcms.titulo.value==""){
-          alert("Debe escribir un título");
-          document.fcms.titulo.focus();
-          return; 
-        }
         if(document.fcms.imagen.value==""){
-          alert("Debe subir una imagen principal para el album");
+          alert("Debe subir una imagen principal para la galería");
           document.fcms.imagen.focus();
           return; 
-        }  
+        }
         document.fcms.action = "galeria-nuevo.php";
         document.fcms.proceso.value="Registrar";
         document.fcms.submit();
@@ -82,31 +76,72 @@ if($proceso == "Registrar"){
       </header><!--/.header -->
       <div class="main-content">
         <div class="card">
-          <h4 class="card-title"><strong>Registrar Album</strong></h4>
+          <h4 class="card-title"><strong>Registrar Imagen</strong></h4>
           <form class="fcms" name="fcms" method="post" action="" data-provide="validation" data-disable="false">
             <div class="card-body">
               <?php if(isset($mensaje)){ echo $mensaje; } else {}; ?>
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label require" for="titulo">T&iacute;tulo Album:</label>
+                  <label class="col-form-label required" for="categoria">Categor&iacute;as:</label>
                 </div>
                 <div class="col-8 col-lg-10">
-                  <input class="form-control" name="titulo" type="text" id="titulo" required>
+                  <select class="form-control" id="categoria" name="cod_categoria">
+                    <?php
+                      $consultaCat = "SELECT * FROM galerias_categorias ORDER BY categoria ASC";
+                      $resultadoCat = mysqli_query($enlaces, $consultaCat);
+                      while($filaCat = mysqli_fetch_array($resultadoCat)){
+                        $xCodcate   = $filaCat['cod_categoria'];
+                        $xCategoria = $filaCat['categoria'];
+                    ?>
+                    <option value="<?php echo $xCodcate; ?>"><?php echo $xCategoria; ?></option>
+                    <?php } ?>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
+                  <label class="col-form-label" for="titulo">T&iacute;tulo:</label>
+                </div>
+                <div class="col-8 col-lg-10">
+                  <input class="form-control" name="titulo" type="text" id="titulo" />
                   <div class="invalid-feedback"></div>
                 </div>
               </div>
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label require" for="imagen">Imagen Principal:</label><br>
-                  <small>(-px x -px)</small>
+                  <label class="col-form-label" for="descripcion">Descripci&oacute;n:</label>
+                </div>
+                <div class="col-8 col-lg-10">
+                  <input class="form-control" name="descripcion" type="text" id="descripcion" />
+                  <div class="invalid-feedback"></div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
+                  <label class="col-form-label require" for="imagen">Imagen:</label><br>
+                  <small>(640px x 500px)</small>
                 </div>
                 <div class="col-4 col-lg-8">
-                  <input class="form-control" id="imagen" name="imagen" type="text" required>
+                  <input class="form-control" id="imagen" name="imagen" type="text" required />
                   <div class="invalid-feedback"></div>
                 </div>
                 <div class="col-4 col-lg-2">
                   <button class="btn btn-info" type="button" name="boton2" onClick="javascript:Imagen('GAL');" /><i class="fa fa-save"></i> Examinar</button>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
+                  <label class="col-form-label" for="video">V&iacute;deo:</label><br>
+                  <small>(Pegue en enlace del navegador)</small>
+                </div>
+                <div class="col-8 col-lg-10">
+                  <input class="form-control" name="video" type="text" id="video" />
+                  <small>(El v&iacute;deo anula la vista previa de la imagen)</small>
+                  <div class="invalid-feedback"></div>
                 </div>
               </div>
 

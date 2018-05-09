@@ -77,3 +77,22 @@
 .pagination-area ul li.active {
     background: #ffb600;
 }
+
+.services .item h6 {
+    height: 40px;
+}
+
+@media only screen and (max-width:1199px){
+    
+}
+@media only screen and (max-width:991px){
+
+}
+@media only screen and (max-width:768px){
+    .services .item h6 {
+        height: auto;
+    }
+}
+@media only screen and (max-width:480px){
+    
+}

@@ -8,27 +8,36 @@ if (isset($_REQUEST['proceso'])) {
   $proceso  = "";
 }
 if($proceso == ""){
-  $consultaGal="SELECT * FROM galerias WHERE cod_galeria='$cod_galeria'";
-  $resultadoGal=mysqli_query($enlaces,$consultaGal);
+  $consultaGal = "SELECT * FROM galerias WHERE cod_galeria='$cod_galeria'";
+  $resultadoGal = mysqli_query($enlaces,$consultaGal);
   $filaGal = mysqli_fetch_array($resultadoGal);
   $cod_galeria    = $filaGal['cod_galeria'];
-  $titulo       = htmlspecialchars(utf8_encode($filaGal['titulo']));
-  $imagen       = $filaGal['imagen'];
-  $orden        = $filaGal['orden'];
-  $estado       = $filaGal['estado'];
+  $cod_categoria  = $filaGal['cod_categoria'];
+  $titulo         = htmlspecialchars(utf8_encode($filaGal['titulo']));
+  $descripcion    = htmlspecialchars(utf8_encode($filaGal['descripcion']));
+  $imagen         = $filaGal['imagen'];
+  $video          = $filaGal['video'];
+  $orden          = $filaGal['orden'];
+  $estado         = $filaGal['estado'];
 }
 if($proceso == "Actualizar"){
   $cod_galeria    = $_POST['cod_galeria'];
-  $titulo       = mysqli_real_escape_string($enlaces, utf8_decode($_POST['titulo']));
-  $imagen       = $_POST['imagen'];
-  $orden        = $_POST['orden'];
-  $estado       = $_POST['estado'];
+  $cod_categoria  = $_POST['cod_categoria'];
+  $titulo         = mysqli_real_escape_string($enlaces, utf8_decode($_POST['titulo']));
+  $descripcion    = mysqli_real_escape_string($enlaces, utf8_decode($_POST['descripcion']));
+  $imagen         = $_POST['imagen'];
+  $video          = $_POST['video'];
+  $orden          = $_POST['orden'];
+  $estado         = $_POST['estado'];
   
   //Validar si el registro existe
   $actualizarGalerias = "UPDATE galerias SET
     cod_galeria='$cod_galeria', 
+    cod_categoria='$cod_categoria', 
     titulo='$titulo', 
+    descripcion='$descripcion', 
     imagen='$imagen', 
+    video='$video', 
     orden='$orden', 
     estado='$estado' 
     WHERE cod_galeria='$cod_galeria'";
@@ -44,11 +53,6 @@ if($proceso == "Actualizar"){
     <script type="text/javascript" src="assets/js/rutinas.js"></script>
     <script>
       function Validar(){
-        if(document.fcms.titulo.value==""){
-          alert("Debe escribir un título");
-          document.fcms.titulo.focus();
-          return; 
-        }
         if(document.fcms.imagen.value==""){
           alert("Debe subir una imagen principal para el album");
           document.fcms.imagen.focus();
@@ -97,12 +101,51 @@ if($proceso == "Actualizar"){
           <form class="fcms" name="fcms" method="post" action="" data-provide="validation" data-disable="false">
             <div class="card-body">
               <?php if(isset($mensaje)){ echo $mensaje; } else {}; ?>
+
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label require" for="titulo">T&iacute;tulo Album:</label>
+                  <label class="col-form-label" for="categoria">Categor&iacute;as:</label>
                 </div>
                 <div class="col-8 col-lg-10">
-                  <input class="form-control" name="titulo" type="text" id="titulo" value="<?php echo $titulo; ?>" required>
+                  <select class="form-control" id="categoria" name="cod_categoria">
+                    <?php
+                      $consultaCat = "SELECT * FROM galerias_categorias WHERE cod_categoria='$cod_categoria'";
+                      $resultadoCat = mysqli_query($enlaces, $consultaCat);
+                      while($filaCat = mysqli_fetch_array($resultadoCat)){
+                        $xCodcate = $filaCat['cod_categoria'];
+                        $xCategoria = $filaCat['categoria'];
+                      ?>
+                      <option value="<?php echo $xCodcate; ?>"><?php echo $xCategoria; ?> (Actual)</option>
+                      <?php } ?>
+                      <?php
+                        $consultaCat = "SELECT * FROM galerias_categorias WHERE cod_categoria!='$cod_categoria'";
+                        $resultadoCat = mysqli_query($enlaces, $consultaCat);
+                        while($filaCat = mysqli_fetch_array($resultadoCat)){
+                          $xCodcate = $filaCat['cod_categoria'];
+                          $xCategoria = $filaCat['categoria'];
+                      ?>
+                      <option value="<?php echo $xCodcate; ?>"><?php echo $xCategoria; ?></option>
+                    <?php } ?>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
+                  <label class="col-form-label" for="titulo">T&iacute;tulo:</label>
+                </div>
+                <div class="col-8 col-lg-10">
+                  <input class="form-control" name="titulo" type="text" id="titulo" value="<?php echo $titulo; ?>" />
+                  <div class="invalid-feedback"></div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
+                  <label class="col-form-label" for="descripcion">Descripci&oacute;n:</label>
+                </div>
+                <div class="col-8 col-lg-10">
+                  <input class="form-control" name="descripcion" type="text" id="descripcion" value="<?php echo $descripcion; ?>" required>
                   <div class="invalid-feedback"></div>
                 </div>
               </div>
@@ -110,7 +153,7 @@ if($proceso == "Actualizar"){
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
                   <label class="col-form-label require" for="imagen">Imagen Principal:</label><br>
-                  <small>(-px x -px)</small>
+                  <small>(640px x 500px)</small>
                 </div>
                 <div class="col-4 col-lg-8">
                   <?php if($xVisitante=="1"){ ?><p><?php echo $imagen; ?></p><?php } ?>
@@ -121,6 +164,18 @@ if($proceso == "Actualizar"){
                   <?php if($xVisitante=="0"){ ?>
                   <button class="btn btn-info" type="button" name="boton2" onClick="javascript:Imagen('GAL');" /><i class="fa fa-save"></i> Examinar</button>
                   <?php } ?>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
+                  <label class="col-form-label" for="video">V&iacute;deo:</label><br>
+                  <small>(Pegue en enlace del navegador)</small>
+                </div>
+                <div class="col-8 col-lg-10">
+                  <input class="form-control" name="video" type="text" id="video" value="<?php echo $video; ?>" />
+                  <small>(El v&iacute;deo anula la vista previa de la imagen)</small>
+                  <div class="invalid-feedback"></div>
                 </div>
               </div>
 

@@ -15,111 +15,60 @@
                 <!-- filter links -->
                 <div class="filtering mb-50">
                     <span data-filter='*' class="active">Todo</span>
-                    <span data-filter='.brand'>Galería 1</span>
-                    <span data-filter='.web'>Galería 2</span>
-                    <span data-filter='.graphic'>Galería 3</span>
+                    <?php
+                        $consultarCategoria = "SELECT * FROM galerias_categorias ORDER BY orden";
+                        $resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                        while($filaCat = mysqli_fetch_array($resultadoCategoria)){
+                            $xCategoria = $filaCat['categoria'];
+                            $xSlug = $filaCat['slug'];
+                    ?>
+                    <span data-filter='.<?php echo $xSlug; ?>'><?php echo $xCategoria; ?></span>
+                    <?php
+                        }
+                        mysqli_free_result($resultadoCategoria);
+                    ?>
                 </div>
             </div>
 
             <!-- gallery -->
             <div class="gallery text-center full-width">
-
-            <!-- gallery item -->
-            <div class="col-md-4 o-hidden items graphic">
-                <div class="item-img wow slideInDown">
-                    <img src="img/portfolio/1.jpg" alt="image">
-                    <div class="item-img-overlay valign">
-                        <div class="overlay-info full-width vertical-center">
-                            <h6>Lorem Ipsum 1</h6>
-                            <p>Es el texto de Prueba que siempre se usa</p>
+                <?php
+                    $consultarGal = "SELECT gc.cod_categoria, gc.categoria, gc.slug, g.* FROM galerias_categorias as gc, galerias as g WHERE g.cod_categoria=gc.cod_categoria AND g.estado='1' ORDER BY orden ASC";
+                    $resultadoGal = mysqli_query($enlaces,$consultarGal) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                    while($filaGal = mysqli_fetch_array($resultadoGal)){
+                        $xCodigo        = $filaGal['cod_galeria'];
+                        $xCategoria     = utf8_encode($filaGal['categoria']);
+                        $xSlug          = $filaGal['slug'];
+                        $xNomGal        = utf8_encode($filaGal['titulo']);
+                        $xDescripcion   = utf8_encode($filaGal['descripcion']);
+                        $xCategoria     = $filaGal['categoria'];
+                        $xImagen        = $filaGal['imagen'];
+                        $xVideo         = $filaGal['video'];
+                ?>
+                <!-- gallery item -->
+                <div class="col-md-4 o-hidden items <?php echo $xSlug; ?>">
+                    <div class="item-img wow slideInLeft">
+                        <img src="cms/assets/img/galerias/<?php echo $xImagen; ?>" alt="image">
+                        <div class="item-img-overlay valign">
+                            <div class="overlay-info full-width vertical-center">
+                                <h6><?php echo $xNomGal; ?></h6>
+                                <p><?php echo $xDescripcion; ?></p>
+                            </div>
+                            <?php if($xVideo==""){ ?>
+                                <a href="cms/assets/img/galerias/<?php echo $xImagen; ?>" class="popimg">
+                                <i class="fas fa-image"></i></a>
+                            <?php }else{ ?>
+                                <a href="<?php echo $xVideo; ?>" data-lity>
+                                <i class="fas fa-video"></i></a>
+                            <?php } ?>
                         </div>
-                        <a href="https://www.youtube.com/watch?v=1WfOtCR8L1s" data-lity><i class="fas fa-file"></i></a>
                     </div>
                 </div>
-            </div>
-
-            <!-- gallery item -->
-            <div class="col-md-4 o-hidden items web">
-                <div class="item-img wow slideInRight">
-                    <img src="img/portfolio/2.jpg" alt="image">
-                    <div class="item-img-overlay valign">
-                        <div class="overlay-info full-width vertical-center">
-                            <h6>Lorem Ipsum 2</h6>
-                            <p>Es el texto de Prueba que siempre se usa</p>
-                        </div>
-                        <a href="portfolio-1.html" data-lity>
-                            <i class="fas fa-file"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-                        <!-- gallery item -->
-                        <div class="col-md-4 o-hidden items brand">
-                            <div class="item-img wow slideInUp">
-                                <img src="img/portfolio/3.jpg" alt="image">
-                                <div class="item-img-overlay valign">
-                                    <div class="overlay-info full-width vertical-center">
-                                        <h6>Lorem Ipsum 3</h6>
-                                        <p>Es el texto de Prueba que siempre se usa</p>
-                                    </div>
-                                    <a href="portfolio-1.html" data-lity>
-                                        <i class="fas fa-file"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- gallery item -->
-                        <div class="col-md-4 o-hidden items graphic">
-                            <div class="item-img wow slideInDown">
-                                <img src="img/portfolio/4.jpg" alt="image">
-                                <div class="item-img-overlay valign">
-                                    <div class="overlay-info full-width vertical-center">
-                                        <h6>Lorem Ipsum 4</h6>
-                                        <p>Es el texto de Prueba que siempre se usa</p>
-                                    </div>
-                                    <a href="portfolio-1.html" data-lity>
-                                        <i class="fas fa-file"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- gallery item -->
-                        <div class="col-md-4 o-hidden items web">
-                            <div class="item-img wow slideInUp">
-                                <img src="img/portfolio/5.jpg" alt="image">
-                                <div class="item-img-overlay valign">
-                                    <div class="overlay-info full-width vertical-center">
-                                        <h6>Lorem Ipsum 5</h6>
-                                        <p>Es el texto de Prueba que siempre se usa</p>
-                                    </div>
-                                    <a href="portfolio-1.html" data-lity>
-                                        <i class="fas fa-file"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- gallery item -->
-                        <div class="col-md-4 o-hidden items brand">
-                            <div class="item-img wow slideInLeft">
-                                <img src="img/portfolio/6.jpg" alt="image">
-                                <div class="item-img-overlay valign">
-                                    <div class="overlay-info full-width vertical-center">
-                                        <h6>Lorem Ipsum 6</h6>
-                                        <p>Es el texto de Prueba que siempre se usa</p>
-                                    </div>
-                                    <a href="portfolio-1.html" data-lity>
-                                        <i class="fas fa-file"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
+                <?php
+                    }
+                    mysqli_free_result($resultadoGal);
+                ?>
                 <div class="clear-fix"></div>
-
             </div>
         </div>
     </div>
