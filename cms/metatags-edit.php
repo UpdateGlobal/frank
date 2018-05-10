@@ -7,10 +7,6 @@ if (isset($_REQUEST['proceso'])){
 } else {
   $proceso  = "";
 }
-web: 
-User: 
-password: 
-puerto: 21
 if($proceso==""){
   $consultaMet = "SELECT * FROM metatags WHERE cod_meta='$cod_meta'";
   $ejecutarMet = mysqli_query($enlaces,$consultaMet) or die('Consulta fallida: ' . mysqli_error($enlaces));

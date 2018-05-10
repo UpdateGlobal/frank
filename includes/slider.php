@@ -1,5 +1,5 @@
 <!-- ========================================= Start slider -->
-<header class="header slider bg-img" data-scroll-index="0" data-overlay-dark="7" data-background="/img/bg3.jpg" data-stellar-background-ratio="0.5" id="inicio">
+<header class="header slider bg-img" data-scroll-index="0">
     <div class="container-fluid">
     	<div class="row">
     		<div class="owl-carousel owl-theme full-width">
@@ -9,9 +9,10 @@
 	                while($filaBan = mysqli_fetch_array($resultadoBanner)){
 	                    $xTitulo    	= $filaBan['titulo'];
 	                    $xSubTitulo    	= $filaBan['subtitulo'];
+	                    $xBanner		= $filaBan['imagen'];
 	                    $xDescripcion	= $filaBan['texto'];
                 ?>
-    			<div class="text-center item" data-background="/img/bg2.jpg">
+    			<div class="text-center item bg-img" data-overlay-dark="7" data-background="cms/assets/img/banner/<?php echo $xBanner; ?>">
 	    			<div class="v-middle caption">
     					<h5><?php echo $xSubTitulo; ?></h5>
 			    		<h1 class="bold"><?php echo $xTitulo; ?></h1>

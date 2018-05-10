@@ -8,7 +8,7 @@ if (isset($_REQUEST['eliminar'])) {
   $eliminar = "";
 }
 if ($eliminar == "true") {
-  $sqlEliminar = "SELECT cod_contacto FROM formulario ORDER BY fecha_ingreso";
+  $sqlEliminar = "SELECT cod_contacto FROM formulario ORDER BY fecha";
   $sqlResultado = mysqli_query($enlaces,$sqlEliminar) or die('Consulta fallida: ' . mysqli_error($enlaces));
   $x = 0;
   while($filaElim = mysqli_fetch_array($sqlResultado)){
@@ -112,14 +112,14 @@ if ($eliminar == "true") {
                     </thead>
                     <tbody>
                       <?php
-                        $consultarContacto = "SELECT * FROM formulario ORDER BY fecha_ingreso";
+                        $consultarContacto = "SELECT * FROM formulario ORDER BY fecha";
                         $resultadoContacto = mysqli_query($enlaces,$consultarContacto) or die('Consulta fallida: ' . mysqli_error($enlaces));
                         while($filaCon = mysqli_fetch_array($resultadoContacto)){
                           $xCodigo    = $filaCon['cod_contacto'];
-                          $xNombres   = $filaCon['nombres'];
+                          $xNombres   = $filaCon['nombre'];
                           $xEmail     = $filaCon['email'];
-                          $xTelefono  = $filaCon['telefono'];
-                          $xFecha     = $filaCon['fecha_ingreso'];
+                          $xTelefono  = $filaCon['phone'];
+                          $xFecha     = $filaCon['fecha'];
                           $num++;
                       ?>
                       <tr>

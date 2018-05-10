@@ -53,7 +53,7 @@
             $xMap         = $filaCot['map'];
             $xFormem      = $filaCot['form_mail'];
     ?>
-    <div class="contact-info bg-img" data-overlay-dark="6" data-background="img/6.jpg">
+    <div class="contact-info bg-img" data-overlay-dark="6" data-background="/img/6.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">

@@ -4,5 +4,5 @@
 $cod_contacto = $_REQUEST['cod_contacto'];
 $eliminar = "DELETE FROM formulario WHERE cod_contacto='$cod_contacto'";
 $resultado = mysqli_query($enlaces,$eliminar);
-header("Location:mensajes-delete.php");
+header("Location:mensajes.php");
 ?>

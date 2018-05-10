@@ -3,15 +3,14 @@
 <?php
 $cod_contacto = $_REQUEST['cod_contacto'];
 
-$consultaCon="SELECT * FROM formulario WHERE cod_contacto='$cod_contacto'";
-$resultadoCon=mysqli_query($enlaces,$consultaCon);
+$consultaCon = "SELECT * FROM formulario WHERE cod_contacto='$cod_contacto'";
+$resultadoCon = mysqli_query($enlaces,$consultaCon);
 $filaCon = mysqli_fetch_array($resultadoCon);
 $xCodigo          = $filaCon['cod_contacto'];
-$xNombres         = $filaCon['nombres'];
-$xDireccion       = $filaCon['direccion'];
+$xNombres         = $filaCon['nombre'];
 $xEmail           = $filaCon['email'];
-$xTelefono        = $filaCon['telefono'];
-$xFecha           = $filaCon['fecha_ingreso'];
+$xTelefono        = $filaCon['phone'];
+$xFecha           = $filaCon['fecha'];
 $xMensaje         = $filaCon['mensaje'];
 
 ?>
@@ -62,10 +61,6 @@ $xMensaje         = $filaCon['mensaje'];
                     <tr>
                       <td><strong>Fecha:</strong></td>
                       <td><?php echo $xFecha; ?></td>
-                    </tr>
-                    <tr>
-                      <td><strong>Direcci&oacute;n:</strong></td>
-                      <td><?php echo $xDireccion; ?></td>
                     </tr>
                     <tr>
                       <td><strong>Tel&eacute;fono:</strong></td>
