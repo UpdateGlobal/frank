@@ -5,8 +5,8 @@
         valid = validateContact();
         if(valid) {
             jQuery.ajax({
-                url: "contact_form.php",
-                data:'nombre='+$("#nombre").val()+'&email='+$("#email").val()+'&phone='+$("#phone").val()+'&mensaje='+$("#mensaje").val(),
+                url: "/contact_form.php",
+                data:'nombre='+$("#nombre").val()+'&email='+$("#email").val()+'&phone='+$("#phone").val()+'&fecha='+$("#fecha").val()+'&mensaje='+$("#mensaje").val(),
                 type: "POST",
                 success:function(data){
                     $("#mail-status").html(data);
@@ -18,8 +18,8 @@
     
     function validateContact() {
         var valid = true;
-        if(!$("#nombres").val()) {
-            $("#nombres").css('background-color','#f28282');
+        if(!$("#nombre").val()) {
+            $("#nombre").css('background-color','#f28282');
             valid = false;
         }
         if(!$("#email").val()) {
@@ -30,8 +30,8 @@
             $("#email").css('background-color','#f28282');
             valid = false;
         }
-        if(!$("#telefono").val()) {
-            $("#telefono").css('background-color','#f28282');
+        if(!$("#phone").val()) {
+            $("#phone").css('background-color','#f28282');
             valid = false;
         }
         if(!$("#mensaje").val()) {
@@ -112,24 +112,25 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <input id="nombre" type="text" name="nombre" placeholder="Nombres y apellidos de contacto" required="required" />
-                                <div id="mail-status"></div>
                             </div>
                             <div class="form-group">
                                 <input id="email" type="email" name="email" placeholder="Email" required="required" />
-                                <div id="mail-status"></div>
                             </div>
                             <div class="form-group">
-                                <input id="celular" type="text" name="phone" placeholder="Celular de contacto" required="required" />
-                                <div id="mail-status"></div>
+                                <input id="phone" type="text" name="phone" placeholder="Celular de contacto" required="required" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <textarea id="mensaje" name="mensaje" placeholder="Escribe tu consulta" rows="4" required="required"></textarea>
-                                <div id="mail-status"></div>
                             </div>
                         </div>
                         <div class="col-md-12 text-center">
+                            <?php 
+                                $fecha = date("Y-m-d");
+                            ?>
+                            <div id="mail-status"></div>
+                            <input type="hidden" id="fecha" name="fecha" value="<?php echo $fecha ?>" />
                             <button type="submit" onClick="sendContact();">Necesito m&aacute;s Informaci&oacute;n</button>
                         </div>
                     </div>

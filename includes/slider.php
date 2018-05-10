@@ -1,5 +1,5 @@
 <!-- ========================================= Start slider -->
-<header class="header slider bg-img" data-scroll-index="0" data-overlay-dark="7" data-background="img/bg3.jpg" data-stellar-background-ratio="0.5" id="inicio">
+<header class="header slider bg-img" data-scroll-index="0" data-overlay-dark="7" data-background="/img/bg3.jpg" data-stellar-background-ratio="0.5" id="inicio">
     <div class="container-fluid">
     	<div class="row">
     		<div class="owl-carousel owl-theme full-width">
@@ -11,7 +11,7 @@
 	                    $xSubTitulo    	= $filaBan['subtitulo'];
 	                    $xDescripcion	= $filaBan['texto'];
                 ?>
-    			<div class="text-center item">
+    			<div class="text-center item" data-background="/img/bg2.jpg">
 	    			<div class="v-middle caption">
     					<h5><?php echo $xSubTitulo; ?></h5>
 			    		<h1 class="bold"><?php echo $xTitulo; ?></h1>

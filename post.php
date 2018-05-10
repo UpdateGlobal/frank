@@ -1,5 +1,11 @@
 <?php include("cms/module/conexion.php"); ?>
-<?php $cod_noticia = $_REQUEST["cod_noticia"]; ?>
+<?php $slug = $_REQUEST["slug"]; ?>
+<?php
+    $consultarNoticias = "SELECT * FROM noticias WHERE slug='$slug'";
+    $resultadoNoticias = mysqli_query($enlaces,$consultarNoticias) or die('Consulta fallida: ' . mysqli_error($enlaces));
+    $filaNot = mysqli_fetch_array($resultadoNoticias);
+        $cod_noticia = $filaNot['cod_noticia'];
+?>
 <!DOCTYPE html>
 <html lang="es">
     <?php include 'includes/head.php'; ?>
@@ -8,7 +14,7 @@
             include 'includes/loader.php';
             include 'includes/navbar_int.php';
         ?>
-        <header class="header slider bg-img" data-scroll-index="0" data-overlay-dark="7" data-background="img/bg3.jpg" data-stellar-background-ratio="0.5" id="inicio" style="height: 180px;"></header>
+        <header class="header slider bg-img" data-scroll-index="0" data-overlay-dark="7" data-background="/img/bg3.jpg" data-stellar-background-ratio="0.5" id="inicio" style="height: 180px;"></header>
         <?php 
             include 'includes/blog-post.php';
             include 'includes/footer.php';

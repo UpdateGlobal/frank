@@ -10,6 +10,7 @@
                 </div>
             </div>
             <div class="clear-fix"></div>
+            
             <div class="col-md-12 wow fadeInUp owl-carousel owl-theme">
                 <?php
                     $consultarNoticias = "SELECT nc.cod_categoria, nc.categoria, p.* FROM noticias as p, noticias_categorias as nc WHERE p.cod_categoria=nc.cod_categoria AND p.estado='1' ORDER BY fecha DESC";
@@ -18,6 +19,7 @@
                         $cod_noticia    = $filaNot['cod_noticia'];
                         $cod_categoria  = $filaNot['cod_categoria'];
                         $xTitulo        = $filaNot['titulo'];
+                        $xSlug          = $filaNot['slug'];
                         $xCategoria     = $filaNot['categoria'];
                         $xNoticia       = $filaNot['noticia'];
                         $xImagen        = $filaNot['imagen'];
@@ -26,11 +28,18 @@
                 ?>
                 <div class="pitem">
                     <div class="post-img">
-                        <img src="cms/assets/img/noticias/<?php echo $xImagen; ?>" alt="<?php echo $xTitulo; ?>">
+                        <img src="/cms/assets/img/noticias/<?php echo $xImagen; ?>" alt="<?php echo $xTitulo; ?>">
                     </div>
                     <div class="content">
-                        <span class="tag"><a href="categorias.php?cod_categoria=<?php echo $cod_categoria; ?>"><?php echo $xCategoria; ?></a></span>
-                        <h5><a href="post.php?cod_noticia=<?php echo $cod_noticia; ?>"><?php echo $xTitulo; ?></a></h5>
+                        <?php
+                            $consultarCategoria = "SELECT * FROM noticias_categorias WHERE estado='1' AND cod_categoria='$cod_categoria' ORDER BY orden";
+                            $resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                            $filaCat = mysqli_fetch_array($resultadoCategoria);
+                                $xSlugc     = $filaCat['slug'];
+                        ?>
+                        <span class="tag"><a href="/categorias/<?php echo $xSlugc; ?>"><?php echo $xCategoria; ?></a></span>
+                        <?php mysqli_free_result($resultadoCategoria); ?>
+                        <h5><a href="/blog/<?php echo $xSlug; ?>"><?php echo $xTitulo; ?></a></h5>
                         <p class="text-justify">
                             <?php 
                                 $xResumen_m = strip_tags($xNoticia);
@@ -49,7 +58,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
-                <a class="btn-volver" href="blog.php" style="margin-top: 30px;">Ver todas las noticias</a>
+                <a class="btn-volver" href="/blog.php" style="margin-top: 30px;">Ver todas las noticias</a>
             </div>
         </div>
     </div>

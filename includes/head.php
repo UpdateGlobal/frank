@@ -26,7 +26,7 @@
     <meta name="robots" content="INDEX,FOLLOW" />
 
 	<!-- Favicon -->
-	<link rel="shortcut icon" href="cms/assets/img/meta/<?php echo $xIco; ?>" />
+	<link rel="shortcut icon" href="/cms/assets/img/meta/<?php echo $xIco; ?>" />
     <?php mysqli_free_result($resultadoMet); ?>
     
     <!-- Fonts -->
@@ -34,9 +34,9 @@
 	<link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,600,700,800" rel="stylesheet">
 
 	<!-- Plugins -->
-	<link rel="stylesheet" href="css/plugins.css" />
+	<link rel="stylesheet" href="/css/plugins.css" />
 
     <!-- Core Style Css -->
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
 </head>

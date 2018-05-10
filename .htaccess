@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !-d
+RewriteCond %{REQUEST_URI} !-f
+RewriteCond %{REQUEST_URI} !^/categorias/(.*) [OR]
+RewriteCond %{REQUEST_URI} !^/blog/(.*) [OR]
+RewriteRule ^categorias/([^/]*) categorias.php?slug=$1
+RewriteRule ^categorias/([^/]*) categorias.php?slug=$1&p=$2
+RewriteRule ^blog/([^/]*) post.php?slug=$1

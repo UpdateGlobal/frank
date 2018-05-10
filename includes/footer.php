@@ -9,7 +9,7 @@
                 $xTitulo    = $filaMet['titulo'];
                 $xSlogan    = $filaMet['slogan'];
         ?>
-        <a class="logo" href="index.php"><img src="cms/assets/img/meta/<?php echo $xLogo; ?>" alt="<?php echo "".$xTitulo." | ".$xSlogan.""; ?>"></a>
+        <a class="logo" href="/index.php"><img src="/cms/assets/img/meta/<?php echo $xLogo; ?>" alt="<?php echo "".$xTitulo." | ".$xSlogan.""; ?>"></a>
         <?php mysqli_free_result($resultadoMet); ?>
         <div class="social-icon">
             <?php

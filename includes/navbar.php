@@ -1,9 +1,16 @@
 <!-- ========================================= Navbar -->
 <nav class="navbar navbar-expand-lg">
 	<div class="container">
-		<a class="logo" href="index.php">
-			<img src="img/logo-light.png" alt="logo">
+		<?php
+	    	$consultarMet = 'SELECT * FROM metatags';
+	        $resultadoMet = mysqli_query($enlaces,$consultarMet) or die('Consulta fallida: ' . mysqli_error($enlaces));
+	        $filaMet = mysqli_fetch_array($resultadoMet);
+	        	$xLogo      = $filaMet['logo'];
+    	?>
+		<a class="logo" href="/index.php">
+			<img src="/cms/assets/img/meta/<?php echo $xLogo; ?>" alt="logo">
 		</a>
+ 		<?php mysqli_free_result($resultadoMet); ?>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="icon-bar"><i class="fas fa-bars"></i></span>
 		</button>

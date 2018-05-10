@@ -20,8 +20,9 @@
                         while($filaCat = mysqli_fetch_array($resultadoCategoria)){
                             $xCodigo    = $filaCat['cod_categoria'];
                             $xCategoria = $filaCat['categoria'];
+                            $xSlug      = $filaCat['slug'];
                     ?>
-                    <li><a href="categorias.php?cod_categoria=<?php echo $xCodigo; ?>"><i class="fas fa-angle-double-right"></i> <?php echo $xCategoria; ?></a></li>
+                    <li><a href="/categorias/<?php echo $xSlug; ?>"><i class="fas fa-angle-double-right"></i> <?php echo $xCategoria; ?></a></li>
                     <?php
                         }
                         mysqli_free_result($resultadoCategoria);
@@ -31,7 +32,7 @@
             <div class="col-md-9 col-sm-12 col-xs-12 wow fadeInUp">
                 <div class="row">
                 <?php
-                    $consultarNoticias = "SELECT * FROM noticias WHERE estado='1'";
+                    $consultarNoticias = "SELECT * FROM noticias WHERE cod_categoria='$cod_categoria' AND estado='1'";
                     $resultadoNoticias = mysqli_query($enlaces, $consultarNoticias);
                     $total_registros = mysqli_num_rows($resultadoNoticias);
                     if($total_registros==0){ 
@@ -64,11 +65,18 @@
                 <div class="col-md-6 wow fadeInUp">
                     <div class="pitem">
                         <div class="post-img" style="margin-top: 0px;">
-                            <img src="cms/assets/img/noticias/<?php echo $xImagen; ?>" alt="<?php echo $xTitulo; ?>">
+                            <img src="/cms/assets/img/noticias/<?php echo $xImagen; ?>" alt="<?php echo $xTitulo; ?>">
                         </div>
                         <div class="content">
-                            <span class="tag"><a href="categorias.php?cod_categoria=<?php echo $cod_categoria; ?>"><?php echo $xCategoria; ?></a></span>
-                            <h5 class="titulo-post"><a href="post.php?cod_noticia=<?php echo $cod_noticia; ?>"><?php echo $xTitulo; ?></a></h5>
+                            <?php
+                                $consultarCategoria = "SELECT * FROM noticias_categorias WHERE estado='1' AND cod_categoria='$cod_categoria' ORDER BY orden";
+                                $resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                                $filaCat = mysqli_fetch_array($resultadoCategoria);
+                                    $xSlugc     = $filaCat['slug'];
+                            ?>
+                            <span class="tag"><a href="/categorias/<?php echo $xSlugc; ?>"><?php echo $xCategoria; ?></a></span>
+                            <?php mysqli_free_result($resultadoCategoria); ?>
+                            <h5 class="titulo-post"><a href="/blog/<?php echo $xSlug; ?>"><?php echo $xTitulo; ?></a></h5>
                             <p class="text-justify text-post">
                                 <?php 
                                     $xResumen_m = strip_tags($xNoticia);
@@ -91,20 +99,20 @@
                         echo "<div class='pagination-area'>
                                 <ul>";
                         if($pagina>1){
-                                echo "<li><a href='?p=".($pagina-1)."'><i class='fa fa-angle-double-left' aria-hidden='true'></i></a></li>";
+                            echo "<li><a href='/categorias/".$slug."&p=".($pagina-1)."'><i class='fa fa-angle-double-left' aria-hidden='true'></i></a></li>";
                         }
                         for($i=$pagina; $i<=$total_paginas && $i<=($pagina+$paginas_mostrar); $i++){
                             if($i==$pagina){
                                 echo "<li class='active'><a>$i</a></li>";
                             }else{
-                                echo "<li><a href='?p=$i'>$i</a></li>";
+                                echo "<li><a href='/categorias/".$slug."&p=$i'>$i</a></li>";
                             }
                         }
                         if(($pagina+$paginas_mostrar)<$total_paginas){
                             echo "<li><a>...</a></li>";
                         }
                         if($pagina<$total_paginas){
-                            echo "<li><a href='?p=".($pagina+1)."'><i class='fa fa-angle-double-right' aria-hidden='true'></i></a></li>";
+                            echo "<li><a href='/categorias/".$slug."&p=".($pagina+1)."'><i class='fa fa-angle-double-right' aria-hidden='true'></i></a></li>";
                         }
                         echo "  </ul>
                             </div>

@@ -48,14 +48,14 @@
                 <!-- gallery item -->
                 <div class="col-md-4 o-hidden items <?php echo $xSlug; ?>">
                     <div class="item-img wow slideInLeft">
-                        <img src="cms/assets/img/galerias/<?php echo $xImagen; ?>" alt="image">
+                        <img src="/cms/assets/img/galerias/<?php echo $xImagen; ?>" alt="image">
                         <div class="item-img-overlay valign">
                             <div class="overlay-info full-width vertical-center">
                                 <h6><?php echo $xNomGal; ?></h6>
                                 <p><?php echo $xDescripcion; ?></p>
                             </div>
                             <?php if($xVideo==""){ ?>
-                                <a href="cms/assets/img/galerias/<?php echo $xImagen; ?>" class="popimg">
+                                <a href="/cms/assets/img/galerias/<?php echo $xImagen; ?>" class="popimg">
                                 <i class="fas fa-image"></i></a>
                             <?php }else{ ?>
                                 <a href="<?php echo $xVideo; ?>" data-lity>

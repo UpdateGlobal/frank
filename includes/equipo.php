@@ -31,7 +31,7 @@
                 ?>
                 <div class="titem wow fadeInUp">
                     <div class="author-img">
-                        <img src="cms/assets/img/equipo/<?php echo $xImagen; ?>" alt="">
+                        <img src="/cms/assets/img/equipo/<?php echo $xImagen; ?>" alt="">
                     </div>
                     <div class="info">
                         <h6><?php echo $xNombre; ?></h6>

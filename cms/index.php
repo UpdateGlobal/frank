@@ -37,10 +37,6 @@
           <label for="password">Clave</label>
         </div>
 
-        <!-- <div class="form-group flexbox">
-          <a class="text-muted hover-primary fs-13" href="forgot.php">¿Olvidó Password?</a>
-        </div> -->
-
         <div class="form-group">
           <button class="btn btn-bold btn-block btn-primary" type="button" id="button" onClick="javascript:Validar()">Ingresar</button>
         </div>

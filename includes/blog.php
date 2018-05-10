@@ -20,8 +20,9 @@
                         while($filaCat = mysqli_fetch_array($resultadoCategoria)){
                             $xCodigo    = $filaCat['cod_categoria'];
                             $xCategoria = $filaCat['categoria'];
+                            $xSlugc     = $filaCat['slug'];
                     ?>
-                    <li><a href="categorias.php?cod_categoria=<?php echo $xCodigo; ?>"><i class="fas fa-angle-double-right"></i> <?php echo $xCategoria; ?></a></li>
+                    <li><a href="/categorias/<?php echo $xSlugc; ?>"><i class="fas fa-angle-double-right"></i> <?php echo $xCategoria; ?></a></li>
                     <?php
                         }
                         mysqli_free_result($resultadoCategoria);
@@ -64,11 +65,18 @@
                 <div class="col-md-6 wow fadeInUp">
                     <div class="pitem">
                         <div class="post-img" style="margin-top: 0px;">
-                            <img src="cms/assets/img/noticias/<?php echo $xImagen; ?>" alt="<?php echo $xTitulo; ?>">
+                            <img src="/cms/assets/img/noticias/<?php echo $xImagen; ?>" alt="<?php echo $xTitulo; ?>">
                         </div>
                         <div class="content">
-                            <span class="tag"><a href="categorias.php?cod_categoria=<?php echo $cod_categoria; ?>"><?php echo $xCategoria; ?></a></span>
-                            <h5 class="titulo-post"><a href="post.php?cod_noticia=<?php echo $cod_noticia; ?>"><?php echo $xTitulo; ?></a></h5>
+                            <?php
+                                $consultarCategoria = "SELECT * FROM noticias_categorias WHERE estado='1' AND cod_categoria='$cod_categoria' ORDER BY orden";
+                                $resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                                $filaCat = mysqli_fetch_array($resultadoCategoria);
+                                    $xSlugc     = $filaCat['slug'];
+                            ?>
+                            <span class="tag"><a href="/categorias/<?php echo $xSlugc; ?>"><?php echo $xCategoria; ?></a></span>
+                            <?php mysqli_free_result($resultadoCategoria); ?>
+                            <h5 class="titulo-post"><a href="/blog/<?php echo $xSlug; ?>"><?php echo $xTitulo; ?></a></h5>
                             <p class="text-justify text-post">
                                 <?php 
                                     $xResumen_m = strip_tags($xNoticia);

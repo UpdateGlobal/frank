@@ -1,0 +1,98 @@
+.contact .form button {
+    padding: 10px 30px;
+    background: #222;
+    color: #fff;
+    font-size: 14px;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+	-webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+.contact .form button:hover {
+	background: #FFB600;
+}
+
+.btn-volver {
+    padding: 10px 30px;
+    background: #222;
+    color: #fff;
+    font-size: 14px;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+.btn-volver:hover {
+    background: #FFB600;
+}
+
+.content-post p, .content-post h4 {
+    margin-bottom: 10px;
+}
+
+.categoria-post {
+    color: #FFB600;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.categorias li{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.categorias li a{
+    color: #FFB600;
+}
+
+.pitem {
+    margin-bottom: 30px;
+}
+
+.titulo-post{
+    height: 60px;
+}
+
+.text-post{
+    height: 120px;
+}
+
+.pagination-area{
+    text-align: center;
+}
+
+.pagination-area ul li {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px 5px;
+    background: #333;
+    color: #fff;
+}
+
+.pagination-area ul li.active {
+    background: #ffb600;
+}
+
+.services .item h6 {
+    height: 40px;
+}
+
+@media only screen and (max-width:1199px){
+    
+}
+@media only screen and (max-width:991px){
+
+}
+@media only screen and (max-width:768px){
+    .services .item h6 {
+        height: auto;
+    }
+}
+@media only screen and (max-width:480px){
+    
+}

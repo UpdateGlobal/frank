@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="offset-lg-2 col-lg-8 content wow fadeInUp">
                     <a class="logo-img" href="slider-text.html#">
-                        <img src="img/brand.png" alt="logo">
+                        <img src="/img/brand.png" alt="logo">
                     </a>
                     <div class="section-head">
                         <h4>Quienes <span> Somos</span></h4>

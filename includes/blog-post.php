@@ -20,8 +20,9 @@
                         while($filaCat = mysqli_fetch_array($resultadoCategoria)){
                             $xCodigo    = $filaCat['cod_categoria'];
                             $xCategoria = $filaCat['categoria'];
+                            $xSlug     = $filaCat['slug'];
                     ?>
-                    <li><a href="categorias.php?cod_categoria=<?php echo $xCodigo; ?>"><i class="fas fa-angle-double-right"></i> <?php echo $xCategoria; ?></a></li>
+                    <li><a href="/categorias/<?php echo $xSlug; ?>"><i class="fas fa-angle-double-right"></i> <?php echo $xCategoria; ?></a></li>
                     <?php
                         }
                         mysqli_free_result($resultadoCategoria);
@@ -42,14 +43,14 @@
                 ?>
                 <div class="pitem">
                     <div class="post-img" style="margin-top: 0px;">
-                        <img src="cms/assets/img/noticias/<?php echo $xImagen; ?>" alt="<?php echo $xTitulo; ?>">
+                        <img src="/cms/assets/img/noticias/<?php echo $xImagen; ?>" alt="<?php echo $xTitulo; ?>">
                     </div>
                     <div class="content-post">
                         <span class="categoria-post"><?php echo $xCategoria; ?></span>
                         <h4><?php echo $xTitulo; ?></h4>
                         <?php echo $xNoticia; ?>
                         <hr>
-                        <a class="btn-volver" href="blog.php">&lt; Volver</a>
+                        <a class="btn-volver" href="/blog.php">&lt; Volver</a>
                     </div>
                 </div>
                 <?php
