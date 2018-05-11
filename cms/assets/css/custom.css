@@ -334,6 +334,11 @@ label span {
     text-align: justify;
 }
 
+.font .fa {
+    font-family: Font Awesome\ 5 Free;
+}
+
+
 
 @media only screen and (max-width:1199px){
 

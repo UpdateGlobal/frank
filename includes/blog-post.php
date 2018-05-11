@@ -49,6 +49,8 @@
                         <span class="categoria-post"><?php echo $xCategoria; ?></span>
                         <h4><?php echo $xTitulo; ?></h4>
                         <?php echo $xNoticia; ?>
+                        <!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ae1e6fc57e4c84d"></script>
+                        <!-- Go to www.addthis.com/dashboard to customize your tools --> <div class="addthis_inline_share_toolbox"></div>
                         <hr>
                         <a class="btn-volver" href="/blog.php">&lt; Volver</a>
                     </div>

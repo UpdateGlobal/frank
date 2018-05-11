@@ -1,4 +1,4 @@
-<!-- Sidebar -->
+    <!-- Sidebar -->
     <aside class="sidebar sidebar-icons-right sidebar-icons-boxed sidebar-expand-lg">
       <header class="sidebar-header">
         <span class="logo">
@@ -16,7 +16,7 @@
 
           <li class="menu-item <?php echo ($menu == "inicio" ? "active" : "")?>">
             <a class="menu-link <?php echo ($menu == "inicio" ? "open" : "")?>" href="#">
-              <span class="icon fa fa fa-home"></span>
+              <span class="icon fa fa-home"></span>
               <span class="title">Inicio</span>
               <span class="arrow"></span>
             </a>
@@ -96,21 +96,7 @@
               <li class="menu-item">
                 <a class="menu-link" href="galeria.php">
                   <span class="dot"></span>
-                  <span class="title">Album</span>
-                </a>
-              </li>
-
-              <li class="menu-item">
-                <a class="menu-link" href="galeria-fotos.php">
-                  <span class="dot"></span>
-                  <span class="title">Fotos</span>
-                </a>
-              </li>
-
-              <li class="menu-item">
-                <a class="menu-link" href="galeria-videos.php">
-                  <span class="dot"></span>
-                  <span class="title">V&iacute;deos</span>
+                  <span class="title">Galer&iacute;a</span>
                 </a>
               </li>
 

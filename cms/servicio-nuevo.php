@@ -94,6 +94,10 @@ if($proceso == "Registrar"){
                     <option value="fa-images">&#xf302 Im&aacute;genes</option>
                     <option value="fa-tablet-alt">&#xf3fa Tableta</option>
                     <option value="fa-heart">&#xf004 Corazón</option>
+                    <option value="fa-cogs">&#xf085 Engrane</option>
+                    <option value="fa-bug">&#xf188 Bicho</option>
+                    <option value="fa-address-book">&#xf2b9 Libreta</option>
+                    <option value="fa-gavel">&#xf0e3 Martillo</option>
                   </select>
                 </div>
               </div>

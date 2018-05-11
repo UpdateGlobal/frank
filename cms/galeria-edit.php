@@ -72,6 +72,8 @@ if($proceso == "Actualizar"){
         return ((key >= 48 && key <= 57) || (key==8))
       }
     </script>
+    <link href="assets/jackbox/css/jackbox.css" rel="stylesheet" type="text/css" />
+    <link href="assets/jackbox/css/jackbox_hovers.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <!-- Preloader -->
@@ -167,6 +169,19 @@ if($proceso == "Actualizar"){
                 </div>
               </div>
 
+              <?php if($video!=""){ ?>
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
+                  <label class="col-form-label">Vista previa del v&iacute;deo:</label>
+                </div>
+                <div class="col-8 col-lg-10">
+                  <a class="jackbox btn btn-outline btn-secondary" data-group="video" href="<?php echo $video; ?>" style="padding-top:10px; padding-bottom:10px;">
+                    <i class="fa fa-play-circle" aria-hidden="true"></i> Reproducir
+                  </a>
+                </div>
+              </div>
+              <?php }else{ ?>
+              <?php } ?>
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
                   <label class="col-form-label" for="video">V&iacute;deo:</label><br>
@@ -209,6 +224,29 @@ if($proceso == "Actualizar"){
         </div>
       </div><!--/.main-content -->
       <?php include("module/footer_int.php"); ?>
+      <script type="text/javascript" src="assets/jackbox/js/libs/jquery.address-1.5.min.js"></script>
+      <script type="text/javascript" src="assets/jackbox/js/libs/Jacked.js"></script>
+      <script type="text/javascript" src="assets/jackbox/js/jackbox-swipe.js"></script>
+      <script type="text/javascript" src="assets/jackbox/js/jackbox.js"></script>
+      <script type="text/javascript" src="assets/jackbox/js/libs/StackBlur.js"></script>
+      <script type="text/javascript">
+        jQuery(document).ready(function() {
+  //        jQuery(".jackbox[data-group]").jackBox("init");
+          jQuery(".jackbox[data-group]").jackBox("init", {
+            deepLinking: false,
+            showInfoByDefault: false,       // show item info automatically when content loads, true/false
+            preloadGraphics: true,          // preload the jackbox graphics for a faster jackbox
+            fullscreenScalesContent: false,  // choose to always scale content up in fullscreen mode, true/false
+   
+            autoPlayVideo: false,           // video autoplay default, this can also be set per video in the data-attributes, true/false
+            flashVideoFirst: false,         // choose which technology has first priority for video, HTML5 or Flash, true/false
+       
+            useThumbs: false,                // choose to use thumbnails, true/false
+            thumbsStartHidden: false,       // choose to initially hide the thumbnail strip, true/false
+            useThumbTooltips: false
+          });
+        });
+      </script>
     </main>
     <!-- END Main container -->
   </body>

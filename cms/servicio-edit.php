@@ -93,16 +93,22 @@ if($proceso=="Actualizar"){
                 <div class="col-4 col-lg-8">
                   <style>
                     .select-font{
-                      font-family: 'FontAwesome', 'Helvetica';
+                      font-family: Font Awesome\ 5 Free, Helvetica;
                     }
                   </style>
-                  <select class="form-control select-font" name="icon" id="icon">
+                  <?php if($xVisitante=="1"){ ?><i class="fa <?php echo $img_contenido; ?>"></i><?php } ?>
+                  <select class="form-control select-font" name="icon" id="icon" <?php if($xVisitante=="1"){ ?>style="display:none;"<?php }else{ ?> <?php } ?>>
+                    <option value="<?php echo $icon; ?>"><?php echo $icon; ?> (Actual)</option>
                     <option value="fa-chart-pie">&#xf200 Chart pie</option>
                     <option value="fa-edit">&#xf044 Editar</option>
                     <option value="fa-comments">&#xf086 Comentarios</option>
                     <option value="fa-images">&#xf302 Im&aacute;genes</option>
                     <option value="fa-tablet-alt">&#xf3fa Tableta</option>
                     <option value="fa-heart">&#xf004 Corazón</option>
+                    <option value="fa-cogs">&#xf085 Engrane</option>
+                    <option value="fa-bug">&#xf188 Bicho</option>
+                    <option value="fa-address-book">&#xf2b9 Libreta</option>
+                    <option value="fa-gavel">&#xf0e3 Martillo</option>
                   </select>
                 </div>
               </div>
